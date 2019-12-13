@@ -1,0 +1,1389 @@
+{
+  "questions": [
+    {
+      "category": "behavioral",
+      "question": "Do you have experience working in an agile team?"
+    },
+    {
+      "category": "behavioral",
+      "question": "Do you work in sprints, or using the kanban approach? "
+    },
+    {
+      "category": "behavioral",
+      "question": "Do you have a preference, and why?"
+    },
+    { "category": "behavioral", "question": "Work in Agile / Scrum?" },
+    {
+      "category": "behavioral",
+      "question": "Have you worked with QA? How you QA/test your code?"
+    },
+    {
+      "category": "behavioral",
+      "question": "How did you communicate progress in your previous role?  Did that process always work?  What could have been "
+    },
+    {
+      "category": "behavioral",
+      "question": "Tell me about a time when you had a miscommunication at work.  What happened?  If you could do it all over "
+    },
+    {
+      "category": "behavioral",
+      "question": "Have you ever disagreed with your boss or manager?  What did you do?  If you haven’t had this happen, imagine "
+    },
+    {
+      "category": "behavioral",
+      "question": "Give me an example of a time when you were able to communicate and work with another person even when they may "
+    },
+    { "category": "behavioral", "question": "How well do you work on teams?" },
+    {
+      "category": "behavioral",
+      "question": "What did you like/not like about your last job?"
+    },
+    {
+      "category": "behavioral",
+      "question": "What would your peers and instructors say about you?"
+    },
+    {
+      "category": "behavioral",
+      "question": "Do you still write code in your job? Do you love it? "
+    },
+    {
+      "category": "behavioral",
+      "question": "Give an example of when you completed a task without being asked. Can you give me another example?  Another?"
+    },
+    {
+      "category": "behavioral",
+      "question": "What is your preferred version control software? "
+    },
+    {
+      "category": "behavioral",
+      "question": "Do you have experience working on a project versioned with Git?"
+    },
+    {
+      "category": "behavioral",
+      "question": "What is your opinion on pull requests (and code reviews)?"
+    },
+    {
+      "category": "behavioral",
+      "question": "What is the difference between Git and Github?"
+    },
+    {
+      "category": "behavioral",
+      "question": "What would you consider an effective Git workflow?"
+    },
+    {
+      "category": "behavioral",
+      "question": "What are build tools good for? Which ones are you familiar with?"
+    },
+    {
+      "category": "behavioral",
+      "question": "What are your biggest strengths? Weaknesses?"
+    },
+    {
+      "category": "behavioral",
+      "question": "What is your greatest achievement?"
+    },
+    {
+      "category": "behavioral",
+      "question": "Tell me about 3 times you have failed. "
+    },
+    {
+      "category": "behavioral",
+      "question": "How did you prepare for this interview?"
+    },
+    {
+      "category": "behavioral",
+      "question": "What are some of your hobbies or passions outside of work? How did you first get into them?"
+    },
+    { "category": "behavioral", "question": "What is your availability?" },
+    {
+      "category": "behavioral",
+      "question": "Do you consider yourself weird? Why or why not?"
+    },
+    {
+      "category": "behavioral",
+      "question": "Are there any questions that we didn’t ask you that we should have?"
+    },
+    { "category": "behavioral", "question": "Why did you choose to learn FE?" },
+    { "category": "behavioral", "question": "How did you learn to code?" },
+    {
+      "category": "behavioral",
+      "question": "What sort of project are you looking for?    "
+    },
+    {
+      "category": "behavioral",
+      "question": "Give me an example of a goal you set for yourself and how you achieved it."
+    },
+    {
+      "category": "behavioral",
+      "question": "If money weren’t an issue and you had to work on a project for 3 months, what would you create?"
+    },
+    {
+      "category": "behavioral",
+      "question": "Where do you see yourself/ What do you want to do in 3/5 years? What kind of environment? How would this job "
+    },
+    {
+      "category": "behavioral",
+      "question": "If you could master one technology this year, what would it be?"
+    },
+    {
+      "category": "behavioral",
+      "question": "What was your greatest challenge in FE?"
+    },
+    {
+      "category": "behavioral",
+      "question": "What was your favorite part about FE?"
+    },
+    {
+      "category": "behavioral",
+      "question": "What excites or interests you about coding?"
+    },
+    {
+      "category": "behavioral",
+      "question": "What has been the hardest part about learning to code so far?"
+    },
+    {
+      "category": "behavioral",
+      "question": "What did you learn yesterday/this week?"
+    },
+    {
+      "category": "behavioral",
+      "question": "What are 3 big contributors to your success?  Who inspires you in the front-end community?"
+    },
+    {
+      "category": "behavioral",
+      "question": "What is the last technical book you read?"
+    },
+    {
+      "category": "behavioral",
+      "question": "What sort of websites or blogs do you read regularly? What do you like about them?"
+    },
+    { "category": "behavioral", "question": "Do you use Git, GitHub?" },
+    {
+      "category": "behavioral",
+      "question": "Tell me about a time you improved a tool, task, or project you were working on. What was the circumstances? "
+    },
+    {
+      "category": "behavioral",
+      "question": "Do you have any side projects? What kind?"
+    },
+    {
+      "category": "behavioral",
+      "question": "What's the coolest thing/project you've ever coded, what are you most proud of?"
+    },
+    {
+      "category": "behavioral",
+      "question": "What is a recent technical challenge you experienced and how did you solve it?"
+    },
+    {
+      "category": "behavioral",
+      "question": "Talk about your preferred development environment. "
+    },
+    {
+      "category": "behavioral",
+      "question": "What tools you use in regular workflow? "
+    },
+    {
+      "category": "behavioral",
+      "question": "What tools do you use for your day to day work? Language, IDEs/editors, version control, build systems, "
+    },
+    {
+      "category": "behavioral",
+      "question": "Which version control systems are you familiar with?"
+    },
+    {
+      "category": "behavioral",
+      "question": "How do you stay on up-to-date with current web trends/innovations, latest front-end technologies and best "
+    },
+    {
+      "category": "behavioral",
+      "question": "What are some things you like about the developer tools you use?"
+    },
+    {
+      "category": "behavioral",
+      "question": "What is a recent challenges you experienced and how did you solved those?"
+    },
+    {
+      "category": "behavioral",
+      "question": "What was the last new technology or tool you learned?  Where did you learn about it?  Have you used it since?"
+    },
+    {
+      "category": "behavioral",
+      "question": "When was the last time you got something wrong?  How did you know?  What did you learn from it?"
+    },
+    {
+      "category": "behavioral",
+      "question": "Can you describe your workflow when you create a web page?"
+    },
+    {
+      "category": "behavioral",
+      "question": "If you have 5 different stylesheets, how would you best integrate them into the site?"
+    },
+    {
+      "category": "behavioral",
+      "question": "Can you describe the difference between progressive enhancement and graceful degradation?"
+    },
+    {
+      "category": "behavioral",
+      "question": "How would you optimize a website's assets/resources?"
+    },
+    {
+      "category": "behavioral",
+      "question": "What is the purpose of cache busting and how can you achieve it?"
+    },
+    {
+      "category": "behavioral",
+      "question": "How many resources will a browser download from a given domain at a time?"
+    },
+    {
+      "category": "behavioral",
+      "question": "Name 3 ways to decrease page load (perceived or actual load time)."
+    },
+    {
+      "category": "behavioral",
+      "question": "If you jumped on a project and they used tabs and you used spaces, what would you do?"
+    },
+    {
+      "category": "behavioral",
+      "question": "What is Flash of Unstyled Content? How do you avoid FOUC?"
+    },
+    {
+      "category": "behavioral",
+      "question": "What is Flash of Unstyled Text? How do you avoid FOUT?"
+    },
+    {
+      "category": "behavioral",
+      "question": "Explain what ARIA and screenreaders are, and how to make a website accessible."
+    },
+    {
+      "category": "behavioral",
+      "question": "What is the purpose of the ```alt``` attribute on images?"
+    },
+    {
+      "category": "behavioral",
+      "question": "Explain some of the pros and cons for CSS animations versus JavaScript animations."
+    },
+    {
+      "category": "behavioral",
+      "question": "What does CORS stand for and what issue does it address?"
+    },
+    {
+      "category": "behavioral",
+      "question": "Describe how you would create a simple slideshow page."
+    },
+    {
+      "category": "behavioral",
+      "question": "What's your favorite feature of Internet Explorer?"
+    },
+    {
+      "category": "behavioral",
+      "question": "What UI, Security, Performance, SEO, Maintainability or Technology considerations do you make while building a "
+    },
+    {
+      "category": "behavioral",
+      "question": "Some people write good HTML, some people write bad HTML. What do you consider to be good HTML?"
+    },
+    {
+      "category": "behavioral",
+      "question": "Tell me about a responsive project you have worked on recently?"
+    },
+    {
+      "category": "behavioral",
+      "question": "Do you have any personal projects? Tell me about them."
+    },
+    { "category": "behavioral", "question": "Ways to decrease page load?" },
+    {
+      "category": "behavioral",
+      "question": "Ways to improve website performance"
+    },
+    {
+      "category": "behavioral",
+      "question": "What tools do you use to test your code's performance?"
+    },
+    {
+      "category": "behavioral",
+      "question": "How many resources will a browser download from a given domain at a time?"
+    },
+    {
+      "category": "behavioral",
+      "question": "How would you optimize a website's assets/resources?"
+    },
+    {
+      "category": "behavioral",
+      "question": "Can you talk about how you have considered performance when developing a website?"
+    },
+    {
+      "category": "behavioral",
+      "question": "What performance issues do you anticipate when building a website?"
+    },
+    {
+      "category": "behavioral",
+      "question": "How would you go about troubleshooting a slow website?"
+    },
+    {
+      "category": "behavioral",
+      "question": "What are some ways to prevent web browser caching?"
+    },
+    {
+      "category": "behavioral",
+      "question": "How do you do browser compatibility testing?"
+    },
+    {
+      "category": "behavioral",
+      "question": "What is your favorite browser?  What sort of tools do you use to debug websites?"
+    },
+    {
+      "category": "behavioral",
+      "question": "What do you think of “hacks”? When should they be used in your code and when should they be avoided?"
+    },
+    {
+      "category": "behavioral",
+      "question": "What are the advantages of client side rendering vs. server side rendering? If you were building our site "
+    },
+    {
+      "category": "behavioral",
+      "question": "How do you test the performance of your code and/or web pages?"
+    },
+    {
+      "category": "behavioral",
+      "question": "What is Flash of unstyled content?"
+    },
+    {
+      "category": "behavioral",
+      "question": "How to avoid Flash of unstyled content."
+    },
+    {
+      "category": "behavioral",
+      "question": "How does the browser rendering engine work?"
+    },
+    {
+      "category": "behavioral",
+      "question": "Can you explain the difference between GET and POST?"
+    },
+    {
+      "category": "behavioral",
+      "question": "What is the DOM? How does the DOM work? Explain in as much detail as possible."
+    },
+    { "category": "behavioral", "question": "What is the SAME ORIGIN POLICY" },
+    {
+      "category": "behavioral",
+      "question": "Comparision of browsers like Chrome, Firefox, Internet explorer, Safari etc"
+    },
+    {
+      "category": "behavioral",
+      "question": "Open up your last project, explain your code and thought process."
+    },
+    {
+      "category": "behavioral",
+      "question": "Teach me about something for the next 10 minutes.  "
+    },
+    {
+      "category": "behavioral",
+      "question": "Explain the concept of cloud computing to my older (not-very-technical) mother. "
+    },
+    {
+      "category": "behavioral",
+      "question": "In as much detail as you like, explain what happens when I type 'google.com' into my browser's address bar and "
+    },
+    {
+      "category": "behavioral",
+      "question": "How would you explain the Internet to a child?  "
+    },
+    {
+      "category": "behavioral",
+      "question": "Explain the importance of standards and standards bodies."
+    },
+    {
+      "category": "behavioral",
+      "question": "What happens when somebody hits the URL in browser?"
+    },
+    {
+      "category": "behavioral",
+      "question": "What are HTTP methods? List all HTTP methods that you know, and explain them."
+    },
+    {
+      "category": "behavioral",
+      "question": "Why has it been better to serve site assets from multiple domains?"
+    },
+    {
+      "category": "behavioral",
+      "question": "Do your best to describe the process from the time you type in a website's URL to it finishing loading on your "
+    },
+    {
+      "category": "html",
+      "question": "Why you would like to use semantic tag. Why Semantic HTML is Important?"
+    },
+    {
+      "category": "html",
+      "question": "How Can I Get Indexed Better by Search Engines?"
+    },
+    {
+      "category": "html",
+      "question": "What does “semantically correct” mean?"
+    },
+    { "category": "html", "question": "What is typography  " },
+    { "category": "html", "question": "What are web standards" },
+    { "category": "html", "question": "What does a DOCTYPE do?" },
+    {
+      "category": "html",
+      "question": "What happens when DOCTYPE is not given?"
+    },
+    {
+      "category": "html",
+      "question": "What's the difference between standards mode and quirks mode?"
+    },
+    {
+      "category": "html",
+      "question": "What's the difference between HTML and XHTML?"
+    },
+    {
+      "category": "html",
+      "question": "Why html5 doctype does not have a DTD definition?"
+    },
+    {
+      "category": "html",
+      "question": "What does the lang attribute in html do?"
+    },
+    {
+      "category": "html",
+      "question": "What is desktop first and mobile first design approach"
+    },
+    {
+      "category": "html",
+      "question": "Are there any problems with serving pages as application/xhtml+xml?"
+    },
+    {
+      "category": "html",
+      "question": "How do you serve a page with content in multiple languages?"
+    },
+    {
+      "category": "html",
+      "question": "What kind of things must you be wary of when design or developing for multilingual sites?"
+    },
+    {
+      "category": "html",
+      "question": "What are ```data-``` attributes good for?"
+    },
+    {
+      "category": "html",
+      "question": "Consider HTML5 as an open web platform. What are the building blocks of HTML5?"
+    },
+    {
+      "category": "html",
+      "question": "Describe the difference between a `cookie`, `sessionStorage` and `localStorage`."
+    },
+    {
+      "category": "html",
+      "question": "Describe the difference between ```<script>```, ```<script async>``` and ```<script defer>```."
+    },
+    {
+      "category": "html",
+      "question": "Why is it generally a good idea to position CSS <link>s between <head></head> and JS <script>s just before </"
+    },
+    { "category": "html", "question": "What is progressive rendering?" },
+    { "category": "html", "question": "What is Critical Rendering Path" },
+    { "category": "html", "question": "SSR VS CSR" },
+    {
+      "category": "html",
+      "question": "Have you used different HTML templating languages before? what did you like about them?"
+    },
+    {
+      "category": "html",
+      "question": "Why you would use a srcset attribute in an image tag? Explain the process the browser uses when evaluating the "
+    },
+    { "category": "html", "question": "Why does invalid HTML work?" },
+    { "category": "html", "question": "What is XHTML?" },
+    {
+      "category": "html",
+      "question": "What is a Favicon? Where are favicons displayed?"
+    },
+    { "category": "html", "question": "Are HTML 5 tags case sensitive?" },
+    {
+      "category": "html",
+      "question": "Why must the ID attribute be unique on each page?"
+    },
+    { "category": "html", "question": "What is a blockquote?" },
+    { "category": "html", "question": "What is a meta tag?" },
+    {
+      "category": "html",
+      "question": "How many cookies can you use on one website?"
+    },
+    { "category": "html", "question": "How big can a web cookie be?" },
+    {
+      "category": "html",
+      "question": "What is the difference between Canvas and SVG graphics?    "
+    },
+    {
+      "category": "html",
+      "question": "What is the difference between a ```<span>``` and a ```<div>```?"
+    },
+    {
+      "category": "html",
+      "question": "Name 5 common block-level and inline HTML elements."
+    },
+    {
+      "category": "html",
+      "question": "What are semantic and non-semantic elements?"
+    },
+    {
+      "category": "html",
+      "question": "What is the purpose of ```main``` element?"
+    },
+    { "category": "html", "question": "Why to use HTML5 semantic tags?" },
+    {
+      "category": "html",
+      "question": "Define semantic markup. What are the semantic meanings for ```<section>, <article>, <aside>, <nav>, <header>, "
+    },
+    {
+      "category": "html",
+      "question": "When should you use ```section```, ```div``` or ```article```?"
+    },
+    {
+      "category": "html",
+      "question": "What is the difference between (```<i>``` and ```<em>```) and (```<b>```, ```<strong>```) and how will "
+    },
+    {
+      "category": "html",
+      "question": "What is the purpose of aria attributes?"
+    },
+    {
+      "category": "html",
+      "question": "Explain what inline styles and javascript are and when they are appropriate to use."
+    },
+    {
+      "category": "html",
+      "question": "When is it acceptable to use font tags?"
+    },
+    { "category": "html", "question": "What is Character Encoding?" },
+    { "category": "html", "question": "What is the purpose of meta tags?" },
+    {
+      "category": "html",
+      "question": "What is the purpose of Charset meta tag?"
+    },
+    {
+      "category": "html",
+      "question": "What does async and defer refer in script tag ? Describe the difference between ```<script>```, ```<script "
+    },
+    { "category": "html", "question": "Experience with website optimization?" },
+    { "category": "html", "question": "How to handle form validation?" },
+    { "category": "html", "question": "What is viewport?" },
+    {
+      "category": "html",
+      "question": "What is the difference between cookies, sessionStorage and localStorage?"
+    },
+    {
+      "category": "html",
+      "question": "Where should we place Javascript ```files``` top OR bottom. What are the advantages and disadvantages of "
+    },
+    { "category": "css", "question": "What is CSS?" },
+    {
+      "category": "css",
+      "question": "Where to define styles? How can you integrate/import CSS on a web page?"
+    },
+    { "category": "css", "question": "What is Property?" },
+    { "category": "css", "question": "What is Selector? " },
+    { "category": "css", "question": "What are Combinators?" },
+    {
+      "category": "css",
+      "question": "Why background and color are the separate properties if they should always be set together?"
+    },
+    {
+      "category": "css",
+      "question": "What is the difference between class selectors and id selectors?"
+    },
+    {
+      "category": "css",
+      "question": "When working on a large codebase CSS it can quickly become unwieldly and difficult to maintain. How do you "
+    },
+    { "category": "css", "question": "What is CSS BEM" },
+    { "category": "css", "question": "How do you organize CSS files?" },
+    {
+      "category": "css",
+      "question": "What are the advantages of External Style Sheets?"
+    },
+    { "category": "css", "question": "What is RWD (Responsive web design) ?" },
+    {
+      "category": "css",
+      "question": "Explain CSS sprites, and how you would implement them on a page or site. How do you go about creating them? "
+    },
+    { "category": "css", "question": "What are the benefits of CSS sprites?" },
+    {
+      "category": "css",
+      "question": "What is the CSS Box model and what are its elements?"
+    },
+    {
+      "category": "css",
+      "question": "What is the float property and what float do."
+    },
+    {
+      "category": "css",
+      "question": "How can you clear sides of a floating element?"
+    },
+    { "category": "css", "question": "What is tweening?" },
+    {
+      "category": "css",
+      "question": "Who maintains the CSS specifications? What do you understand by W3C?"
+    },
+    {
+      "category": "css",
+      "question": "Explain the difference between ```visibility: hidden;``` and ```display: none;```? What are the pros and cons "
+    },
+    { "category": "css", "question": "What is re-flow?" },
+    {
+      "category": "css",
+      "question": "How does ```z-index``` relate to positioning? Describe ```z-index``` and how stacking context is formed?"
+    },
+    {
+      "category": "css",
+      "question": "What is the purpose of the ```z-index``` and how is it used?"
+    },
+    {
+      "category": "css",
+      "question": "What existing CSS frameworks have you used locally, or in production? How would you change/improve them?"
+    },
+    {
+      "category": "css",
+      "question": "What are CSS frameworks? What CSS frameworks have you used"
+    },
+    {
+      "category": "css",
+      "question": "How works absolute / relative / fixed / static position? "
+    },
+    {
+      "category": "css",
+      "question": "How is behave absolute element if it is inside fixed element/relative/absolute element"
+    },
+    {
+      "category": "css",
+      "question": "What are the pros and cons of using absolute positioning?"
+    },
+    {
+      "category": "css",
+      "question": "The difference between block / inline / inline-block element"
+    },
+    {
+      "category": "css",
+      "question": "List CSS selectors and their priorities"
+    },
+    {
+      "category": "css",
+      "question": "Talk about position property, and its values"
+    },
+    { "category": "css", "question": "What are counters in CSS3 ?" },
+    { "category": "css", "question": "How to hide an element?" },
+    { "category": "css", "question": "Are CSS rule names case sensitive?" },
+    {
+      "category": "css",
+      "question": "Multiple Class / ID and Class Selectors"
+    },
+    {
+      "category": "css",
+      "question": "Why CSS selectors mixed up with cases (uppercase and lowercase) don't apply the styles?"
+    },
+    {
+      "category": "css",
+      "question": "Does margin-top or margin-bottom has effect on inline element?"
+    },
+    {
+      "category": "css",
+      "question": "Does padding-top or padding-bottom has effect on inline element?"
+    },
+    {
+      "category": "css",
+      "question": "Which one would you prefer among px, em % or pt and why?"
+    },
+    {
+      "category": "css",
+      "question": "Does padding-left or padding-right or margin-left or margin-right has effect on inline element?"
+    },
+    {
+      "category": "css",
+      "question": "If you have a <p> element with font-size: 10rem, will the text be responsive when the user resizes / drags the "
+    },
+    {
+      "category": "css",
+      "question": "Describe pseudo-elements and discuss what they are used for."
+    },
+    {
+      "category": "css",
+      "question": "In a HTML document, the pseudo class :root always refers to the <html> element"
+    },
+    {
+      "category": "css",
+      "question": "What is pseudo element? what is pseudo class?"
+    },
+    {
+      "category": "css",
+      "question": "The pseudo class :checked will select inputs with type radio or checkbox, but not <option> elements."
+    },
+    { "category": "css", "question": "How to center align a paragraph?" },
+    {
+      "category": "css",
+      "question": "How to center align a div inside another div?"
+    },
+    {
+      "category": "css",
+      "question": "How to make a two column Web page? a three column Web page?"
+    },
+    {
+      "category": "css",
+      "question": "How to draw a triangle? a circle? a colored square?"
+    },
+    { "category": "css", "question": "How to make a tab view?" },
+    {
+      "category": "css",
+      "question": "How do you define multiple background images through CSS?"
+    },
+    {
+      "category": "css",
+      "question": "Explain the CSS “box model” and the layout components that it consists of. Provide some usage examples."
+    },
+    {
+      "category": "css",
+      "question": "Explain what elements will match each of the following CSS selectors:"
+    },
+    {
+      "category": "css",
+      "question": "Explain the meaning of each of these CSS units for expressing length:"
+    },
+    {
+      "category": "css",
+      "question": "Which values (units) could be used for width?"
+    },
+    { "category": "css", "question": "In CSS3, how would you select:" },
+    {
+      "category": "css",
+      "question": "How does CSS actually work (under the hood of browser)?"
+    },
+    {
+      "category": "css",
+      "question": "What is the purpose of the box-sizing property? What are it’s possible values?"
+    },
+    {
+      "category": "css",
+      "question": "Provide an example of content-box vs border-box box-sizing"
+    },
+    {
+      "category": "css",
+      "question": "How to create a zebra striped table with CSS?"
+    },
+    {
+      "category": "css",
+      "question": "What is the difference between RGBa and HSLa? When would you use one vs the other?"
+    },
+    {
+      "category": "css",
+      "question": "What libraries and tools you are using?"
+    },
+    { "category": "css", "question": "What preprocessors you are using?" },
+    {
+      "category": "css",
+      "question": "What are the reasons to use preprocessor"
+    },
+    {
+      "category": "css",
+      "question": "What is CSS preprocessor and why to user one?"
+    },
+    {
+      "category": "css",
+      "question": "What are the advantages/disadvantages of using CSS preprocessors?"
+    },
+    {
+      "category": "css",
+      "question": "What preprocessor do you use? (Sass, LESS, Stylus) Why do people use them? How does something like Compass "
+    },
+    {
+      "category": "css",
+      "question": "Describe what you like and dislike about the CSS preprocessors you have used."
+    },
+    {
+      "category": "css",
+      "question": "What’s the difference between “resetting” and “normalizing” CSS? Which would you choose, and why?"
+    },
+    { "category": "css", "question": "Describe Floats and how they work." },
+    {
+      "category": "css",
+      "question": "Describe BFC(Block Formatting Context) and how it works."
+    },
+    {
+      "category": "css",
+      "question": "What are the various clearing techniques and which is appropriate for what context? How works .clearfix?"
+    },
+    {
+      "category": "css",
+      "question": "What are your favourite image replacement techniques and which do you use when?"
+    },
+    {
+      "category": "css",
+      "question": "Does ```overflow: hidden``` create a new block formatting context?"
+    },
+    {
+      "category": "css",
+      "question": "How would you approach fixing browser-specific styling issues?"
+    },
+    {
+      "category": "css",
+      "question": "What are your favorite image replacement techniques and which do you use when?"
+    },
+    {
+      "category": "css",
+      "question": "What techniques/processes do you use for building sites?"
+    },
+    {
+      "category": "css",
+      "question": "How do you serve your pages for feature-constrained browsers? What techniques/processes do you use?"
+    },
+    {
+      "category": "css",
+      "question": "What are the different ways to visually hide content (and make it available only for screen readers)?"
+    },
+    {
+      "category": "css",
+      "question": "Have you ever used a grid system, and if so, what do you prefer? Explain how a grid system works"
+    },
+    {
+      "category": "css",
+      "question": "Have you used or implemented media queries or mobile specific layouts/CSS?"
+    },
+    {
+      "category": "css",
+      "question": "How could you apply css rules specific to a media?"
+    },
+    {
+      "category": "css",
+      "question": "What is the use of ```@media only screen```?"
+    },
+    {
+      "category": "css",
+      "question": "Can you name the four types of ```@media``` properties?"
+    },
+    {
+      "category": "css",
+      "question": "Does the ```screen``` keyword apply to the device's physical screen or the browser's viewport?"
+    },
+    { "category": "css", "question": "Are you familiar with styling SVG?" },
+    {
+      "category": "css",
+      "question": "Can you give an example of an @media property other than screen?"
+    },
+    {
+      "category": "css",
+      "question": "How do you optimize your webpages for print?"
+    },
+    {
+      "category": "css",
+      "question": "How would you implement a web design comp that uses non-standard fonts?"
+    },
+    {
+      "category": "css",
+      "question": "Explain how a browser determines what elements match a CSS selector."
+    },
+    {
+      "category": "css",
+      "question": "What are the some pseudo classed u have used?"
+    },
+    { "category": "css", "question": "How do you optimize css selectors?" },
+    {
+      "category": "css",
+      "question": "How can you load css resources conditionally?"
+    },
+    {
+      "category": "css",
+      "question": "Describe pseudo-elements and discuss what they are used for."
+    },
+    {
+      "category": "css",
+      "question": "What are the properties related to box model"
+    },
+    {
+      "category": "css",
+      "question": "Explain your understanding of the box model and how you would tell the browser in CSS to render your layout in "
+    },
+    {
+      "category": "css",
+      "question": "What does  ```* { box-sizing: border-box; }``` do? What are its advantages?"
+    },
+    {
+      "category": "css",
+      "question": "List as many values for the display property that you can remember."
+    },
+    {
+      "category": "css",
+      "question": "The 'C' in CSS stands for Cascading. How is priority determined in assigning styles (a few examples)? How can "
+    },
+    {
+      "category": "css",
+      "question": "Can you explain the differences between em, rem, px?"
+    },
+    { "category": "css", "question": "What's ```arget```." },
+    {
+      "category": "css",
+      "question": "What existing CSS frameworks have you used locally, or in production? How would you change/improve them?"
+    },
+    {
+      "category": "css",
+      "question": "What are most common tested browsers and devices?"
+    },
+    {
+      "category": "css",
+      "question": "Have you played around with the new CSS Flexbox or Grid specs?"
+    },
+    {
+      "category": "css",
+      "question": "How is responsive design different from adaptive design? What is responsive design? What is the difference "
+    },
+    { "category": "css", "question": "What is aspect ratio?" },
+    {
+      "category": "css",
+      "question": "Have you ever worked with retina graphics? If so, when and what techniques did you use? What kind of "
+    },
+    {
+      "category": "css",
+      "question": "Is there any reason you'd want to use translate() instead of absolute positioning, or vice-versa? And why?"
+    },
+    {
+      "category": "css",
+      "question": "The translate() function can move the position of an element on the z-axis."
+    },
+    {
+      "category": "css",
+      "question": "Do you subscribe to any particular CSS structure? (SMACSS, OOCSS)"
+    },
+    { "category": "css", "question": "What is browser Compatibility?" },
+    {
+      "category": "css",
+      "question": "Tell what each of these tags do, if there are alternatives, which are preferable, why?"
+    },
+    { "category": "css", "question": "What is At-Rule" },
+    { "category": "css", "question": "What is Combinator selector" },
+    { "category": "css", "question": "What is RuleSet?" },
+    { "category": "css", "question": "seeAndTell" },
+    {
+      "category": "css",
+      "question": "Provide CSS so that three lines are displayed red, then green, then blue (2):"
+    },
+    {
+      "category": "css",
+      "question": "Provided following HTML and CSS, what will be displayed (1)?"
+    },
+    { "category": "css", "question": "What is Declaration" },
+    { "category": "css", "question": "What is Declaration Block" },
+    { "category": "css", "question": "What is Universal Selector" },
+    {
+      "category": "css",
+      "question": "How can the gap under the image be removed?"
+    },
+    { "category": "css", "question": "How comments can be added in CSS?" },
+    { "category": "css", "question": "Define Attribute Selector ?" },
+    { "category": "css", "question": "Define property?" },
+    { "category": "css", "question": "What is graceful degradation?" },
+    { "category": "css", "question": "What is progressive enhancement?" },
+    { "category": "css", "question": "What is progressive rendering?" },
+    {
+      "category": "css",
+      "question": "What is feature detection (vs browser detection)?"
+    },
+    {
+      "category": "css",
+      "question": "What is mobile-first? Can you explain the difference between coding a website to be responsive versus using a mobile-first strategy?"
+    },
+    {
+      "category": "css",
+      "question": "How is responsive design different from adaptive design?"
+    },
+    {
+      "category": "css",
+      "question": "What is accessibility/usability? What experience do you have with web accessibility? "
+    },
+    { "category": "css", "question": "What does Accessibility (a11y) mean?" },
+    {
+      "category": "css",
+      "question": "What is accessibility & ARIA role means in a web application?"
+    },
+    {
+      "category": "css",
+      "question": "What is valid HTML I CSS? (Who determines standards and criteria)"
+    },
+    {
+      "category": "css",
+      "question": "Which of listed CSS properties are inherited?"
+    },
+    {
+      "category": "css",
+      "question": "Enlist image types used in web, their properties and usage"
+    },
+    {
+      "category": "css",
+      "question": "Which property is used to change the face of a font?"
+    },
+    {
+      "category": "css",
+      "question": "Which property is used to make a font italic or oblique?"
+    },
+    {
+      "category": "css",
+      "question": "Which property is used to create a small-caps effect?"
+    },
+    {
+      "category": "css",
+      "question": "Which property is used to increase or decrease how bold or light a font appears?"
+    },
+    {
+      "category": "css",
+      "question": "Which property is used to add or subtract space between the letters that make up a word?"
+    },
+    {
+      "category": "css",
+      "question": "Which property is used to add or subtract space between the words of a sentence?"
+    },
+    {
+      "category": "css",
+      "question": "Which property is used to indent the text of a paragraph?"
+    },
+    {
+      "category": "css",
+      "question": "Which property is used to align the text of a document?"
+    },
+    {
+      "category": "css",
+      "question": "Which property is used to underline, overline, and strikethrough text?"
+    },
+    {
+      "category": "css",
+      "question": "Which property is used to capitalize text or convert text to uppercase or lowercase letters?"
+    },
+    {
+      "category": "css",
+      "question": "Which property allows you to control the shape or appearance of the marker of a list?"
+    },
+    {
+      "category": "css",
+      "question": "How do I restore the default value of a property?"
+    },
+    {
+      "category": "css",
+      "question": "How do I assign multiple classes to an element?"
+    },
+    {
+      "category": "css",
+      "question": "What are preferred rules for specificity?"
+    },
+    {
+      "category": "css",
+      "question": "What is specificity? How do u calculate specificity?"
+    },
+    {
+      "category": "css",
+      "question": "What is selector specificity (selector importance) and how it works? How do u calculate specificity?"
+    },
+    {
+      "category": "css",
+      "question": "What is CSS selector specificity and how does it work?"
+    },
+    { "category": "css", "question": "What do you know about transition?" },
+    {
+      "category": "css",
+      "question": "What are the different css filter you can use?"
+    },
+    { "category": "css", "question": "Enlist the various fonts properties?" },
+    {
+      "category": "css",
+      "question": "Enlist the position / display / overflow properties and what are defaults"
+    },
+    {
+      "category": "css",
+      "question": "Enlist the various CSS background properties."
+    },
+    { "category": "css", "question": "Image paths in CSS vs HTML " },
+    { "category": "css", "question": "What is transition & transform? " },
+    {
+      "category": "css",
+      "question": "What is used flexbox / transforms / transitions / animations?"
+    },
+    {
+      "category": "css",
+      "question": "What exposure do you have to CSS3 animations and transitions"
+    },
+    {
+      "category": "css",
+      "question": "Can you export contents from PSD / Sketch?"
+    },
+    {
+      "category": "css",
+      "question": "What kind of challenges do you run into formatting a site for Mobile devices?"
+    },
+    {
+      "category": "css",
+      "question": "Describe Floats and Flexbox and how each works. Why Flexbox is a better solution for web layouts?"
+    },
+    { "category": "css", "question": "What font units are available in CSS?" },
+    {
+      "category": "css",
+      "question": "What is the difference between ```em``` and ```rem``` units?"
+    },
+    {
+      "category": "css",
+      "question": "What are Benefits of using ```em``` and ```rem``` units"
+    },
+    {
+      "category": "css",
+      "question": "What is the difference between padding and margins?"
+    },
+    {
+      "category": "css",
+      "question": "What is the difference between ```span``` and ```div```?"
+    },
+    { "category": "css", "question": "What does !important mean in CSS?" },
+    { "category": "css", "question": "What is cross-browser compatibility? " },
+    {
+      "category": "css",
+      "question": "What are optional closing tag? and why would u use it?"
+    },
+    { "category": "css", "question": "What is a self closing tag?" },
+    {
+      "category": "css",
+      "question": "How do you test cross-browser compatibility of your site?"
+    },
+    { "category": "css", "question": "How can you make a site responsive?" },
+    {
+      "category": "css",
+      "question": "The Difference Between Responsive and Adaptive Design"
+    },
+    {
+      "category": "css",
+      "question": "What do you know about text shadows, box shadows?"
+    },
+    { "category": "css", "question": "How can u highlight text in html?" },
+    {
+      "category": "css",
+      "question": "What is the difference between CSS variables and preprocessor variables?"
+    },
+    {
+      "category": "css",
+      "question": "The Difference Between :nth-child and :nth-of-type"
+    },
+    {
+      "category": "css",
+      "question": "What selects ul[class] > li:nth-child(2n+1)    "
+    },
+    {
+      "category": "css",
+      "question": "What is the difference between “word-break: break-all” versus “word-wrap: break-word” in CSS"
+    },
+    {
+      "category": "css",
+      "question": "How is word-wrap different from white-space ?"
+    },
+    { "category": "css", "question": "What is ```<pre>``` ?" },
+    {
+      "category": "css",
+      "question": "How is ```<b>``` different from ```<strong>``` ?"
+    },
+    { "category": "css", "question": "What does minification do?" },
+    {
+      "category": "css",
+      "question": "What are some ways to make websites faster? Name as many different techniques as you can."
+    },
+    {
+      "category": "css",
+      "question": "Does the following trigger http request at the time of page load?"
+    },
+    {
+      "category": "css",
+      "question": "Does style2.css have to be downloaded and parsed before Paragraph 1 is rendered on the page?"
+    },
+    {
+      "category": "css",
+      "question": "Does style1.css have to be downloaded and parsed before style2.css can be fetched?"
+    },
+    {
+      "category": "css",
+      "question": "Can u apply css rule to a part of html document?"
+    },
+    {
+      "category": "css",
+      "question": "How do you test the performance of your code and/or web pages?"
+    },
+    {
+      "category": "css",
+      "question": "What are some rules for writing efficient CSS"
+    },
+    {
+      "category": "css",
+      "question": "What are you favorite features in SASS?"
+    },
+    { "category": "css", "question": "Explain nested selectors in Sass" },
+    {
+      "category": "css",
+      "question": "How do you refer to a parent selector in the SASS?"
+    },
+    {
+      "category": "css",
+      "question": "Explain what Sass Maps are and how they are use?"
+    },
+    {
+      "category": "css",
+      "question": "Explain the @import function and how it is used"
+    },
+    {
+      "category": "css",
+      "question": "Explain the @include, @mixin, @function functions and how they are used. What is %placeholder"
+    },
+    {
+      "category": "css",
+      "question": "What are some considerations in selecting font sizes? // This question is focused on accessibility"
+    },
+    {
+      "category": "css",
+      "question": "As an organisation we aim to meet WCAG AA standards for accessibility. What experience do you have with "
+    },
+    {
+      "category": "css",
+      "question": "How do you approach developing an accessible website?"
+    },
+    {
+      "category": "css",
+      "question": "What are some of the common accessibility pitfalls when developing a website? How would you go about fixing "
+    },
+    {
+      "category": "js",
+      "question": "What’s the difference between `undefined` and `not defined` in JavaScript"
+    },
+    {
+      "category": "js",
+      "question": "For which value of `x` the results of the following statements are not the same?"
+    },
+    {
+      "category": "js",
+      "question": "What is the drawback of declaring methods directly in JavaScript objects?"
+    },
+    {
+      "category": "js",
+      "question": "What is “closure” in javascript? Can you provide an example?"
+    },
+    {
+      "category": "js",
+      "question": "Write a mul function which will work properly when invoked with following syntax."
+    },
+    { "category": "js", "question": "How to empty an array in JavaScript?" },
+    {
+      "category": "js",
+      "question": "How to check if an object is an array or not?"
+    },
+    { "category": "js", "question": "What is `undefined x 1` in JavaScript" },
+    {
+      "category": "js",
+      "question": "What is the difference between declaring a function in the formats listed below?"
+    },
+    { "category": "js", "question": "What is the output of the following?" },
+    {
+      "category": "js",
+      "question": " In which case the function definition is not hoisted in JavaScript?"
+    },
+    {
+      "category": "js",
+      "question": " What will be the output of the following code?"
+    },
+    {
+      "category": "js",
+      "question": " What’s the difference between `typeof` and `instanceof`?"
+    },
+    {
+      "category": "js",
+      "question": " Calculate the length of the associative array"
+    },
+    {
+      "category": "js",
+      "question": " Difference between `Function`, `Method` and `Constructor` calls in JavaScript."
+    },
+    {
+      "category": "js",
+      "question": " What would be the output of the following code?"
+    },
+    {
+      "category": "js",
+      "question": " What are Service Workers and when can you use them?"
+    },
+    {
+      "category": "js",
+      "question": " What is the difference between a method and a function in javascript?"
+    },
+    {
+      "category": "js",
+      "question": " What is IIFE (Immediately Invoked Function Expression) and how it can be useful?"
+    },
+    {
+      "category": "js",
+      "question": " Describe Singleton Pattern In JavaScript"
+    },
+    {
+      "category": "js",
+      "question": " What are the ways of creating objects in JavaScript ?"
+    },
+    {
+      "category": "js",
+      "question": " Write a function called deepClone which takes an object and creates a object copy of it."
+    },
+    {
+      "category": "js",
+      "question": " Best way to detect `undefined` object property in JavaScript."
+    },
+    {
+      "category": "js",
+      "question": " Write a function called `Clone` which takes an object and creates a object copy of it but not copy "
+    },
+    {
+      "category": "js",
+      "question": " What are promises and how they are useful?"
+    },
+    {
+      "category": "js",
+      "question": " How to check whether a key exist in a JavaScript object or not."
+    },
+    {
+      "category": "js",
+      "question": " What is NaN, why do we need it, and when can it break the page?"
+    },
+    {
+      "category": "js",
+      "question": " How to check if the value of a variable in an array?"
+    },
+    {
+      "category": "js",
+      "question": " Best way to detect reference values of any type in JavaScript ?"
+    },
+    {
+      "category": "js",
+      "question": " How does Object.create method works JavaScript?"
+    },
+    {
+      "category": "js",
+      "question": " How to use constructor functions for inheritance in JavaScript?"
+    },
+    {
+      "category": "js",
+      "question": " How we can prevent modification of object in JavaScript ?."
+    },
+    {
+      "category": "js",
+      "question": " Write a log function which will add prefix `(your message)` to every message you log using "
+    },
+    {
+      "category": "js",
+      "question": "Write a function which will test string as a literal and as an object ?"
+    },
+    {
+      "category": "js",
+      "question": "What is typical use case for anonymous function in JavaScript ?"
+    },
+    { "category": "js", "question": "How to set a default parameter value ?" },
+    {
+      "category": "js",
+      "question": " Write code for merge two JavaScript Object dynamically."
+    },
+    {
+      "category": "js",
+      "question": " What is non-enumerable property in JavaScript and how you can create one?"
+    },
+    { "category": "js", "question": " What is Function binding ?" }
+  ]
+}
