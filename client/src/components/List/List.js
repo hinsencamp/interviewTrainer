@@ -6,10 +6,9 @@ import { Remarkable } from "remarkable";
 var md = new Remarkable("commonmark");
 
 export default function List() {
-  const { questions, setQuestions } = useGlobalState();
+  const { questions, searchTerm, setQuestions } = useGlobalState();
 
   useEffect(() => {
-    const searchTerm = "javaScript";
     setQuestions(searchTerm);
   }, []);
 
