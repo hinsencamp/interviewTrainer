@@ -14,6 +14,11 @@
   width: 100%;
 }
 
+.header {
+  display: flex;
+  flex-direction: row;
+}
+
 .container {
   padding: 10px 10px;
   margin-top: 20px;

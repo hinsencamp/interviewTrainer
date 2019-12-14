@@ -1,27 +1,18 @@
 import React, { useEffect } from "react";
-
+import { QuestionCard } from "components/QuestionCard";
 import useGlobalState from "utils/dataStore";
-import { Pane, Text, Heading } from "evergreen-ui";
-import { Remarkable } from "remarkable";
-var md = new Remarkable("commonmark");
 
 export default function List() {
   const { questions, searchTerm, setQuestions } = useGlobalState();
 
   useEffect(() => {
     setQuestions(searchTerm);
-  }, []);
+  }, [searchTerm]);
 
   return (
     <div>
-      {questions.map((question, index) => (
-        <Pane key={index} background="tint1" padding={24} marginBottom={16}>
-          <Heading size={400}>{question.question}</Heading>
-          <Text
-            // TODO: fix security concern related to XSS
-            dangerouslySetInnerHTML={{ __html: md.render(question.answer) }}
-          />
-        </Pane>
+      {questions.map(({ question, answer }, index) => (
+        <QuestionCard key={index} question={question} answer={answer} />
       ))}
     </div>
   );
