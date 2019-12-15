@@ -1,6 +1,6 @@
 const devConfig = {
   elasticURL: "http://localhost:9200",
-  frontendURL: "http://localhost:5000"
+  frontendURL: "http://localhost:3001"
 };
 
 const basicConfig = {
