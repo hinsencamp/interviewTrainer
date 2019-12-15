@@ -1,106 +1,112 @@
 import React, { useEffect, useState } from "react";
+
+// Hooks
 import { useParams } from "react-router-dom";
-import { Button } from "evergreen-ui";
-
-import { QuestionCard } from "components/QuestionCard";
+import { useLocalStorage } from "utils/hooks";
 import useGlobalState from "utils/dataStore";
+import { useIndex } from "./useIndex";
+import { useResultCounter } from "./useResultCounter";
 
-//TODO: create constants for types
-const COMPLETED = "COMPLETED";
-const FAILED = "FAILED";
+// UI
+import { Button } from "evergreen-ui";
+import { QuestionCard } from "components/QuestionCard";
 
-function CompletionPanel({ onCompletion, questionIndex }) {
+import { COMPLETED, FAILED } from "./resultConst";
+
+function CompletionPanel({ onCompletion }) {
   return (
     <div>
-      <Button onClick={() => onCompletion(questionIndex, COMPLETED)}>
-        Answered
-      </Button>
-      <Button onClick={() => onCompletion(questionIndex, FAILED)}>
-        No Idea
-      </Button>
+      <Button onClick={() => onCompletion(COMPLETED)}>Answered</Button>
+      <Button onClick={() => onCompletion(FAILED)}>No Idea</Button>
     </div>
   );
 }
 
-function useTrainingsSet(questions, startIndex = 0) {
-  const [trainingsSet] = useState(questions);
-  const [currentQuestion, setCurrentQuestion] = useState({
-    source: trainingsSet[startIndex],
-    index: startIndex
-  });
-  const [finalQuestionReached, setfinalQuestionReached] = useState(false);
-  const finalQuestionIndex = questions.length - 1;
-
-  function nextQuestion() {
-    const newIndex = currentQuestion.index + 1;
-
-    if (newIndex > finalQuestionIndex) {
-      setfinalQuestionReached(true);
-    }
-
-    setCurrentQuestion({
-      source: trainingsSet[newIndex],
-      index: newIndex
-    });
-  }
-
-  return {
-    currentQuestion,
-    nextQuestion,
-    finalQuestionReached
-  };
-}
-
-function useResultCounter() {
-  const [finalResults, setFinalResults] = useState({
-    [COMPLETED]: [],
-    [FAILED]: []
-  });
-
-  function handleResult(index, completionStatus) {
-    setFinalResults({
-      ...finalResults,
-      [completionStatus]: [...finalResults[completionStatus], index]
-    });
-  }
-  return {
-    finalResults,
-    handleResult
-  };
-}
-
-//TODO: persist trainingsSet in local storage when entering the trainer
+// TODO: persist index of question set
 //TODO: handle ids not complete question objects
 
-export function Trainer(props) {
-  let { questionType } = useParams();
-
+function useTrainingSet(questionType) {
+  const { storedValue, setValue, removeValue } = useLocalStorage(questionType);
   const globalStates = useGlobalState();
-  const {
-    currentQuestion,
-    finalQuestionReached,
-    nextQuestion
-  } = useTrainingsSet(globalStates[questionType]);
-  const { finalResult, handleResult } = useResultCounter();
 
-  function handleCompletion(questionIndex, comletionStatus) {
-    handleResult(questionIndex, comletionStatus);
-    nextQuestion();
+  const [trainingSet] = useState(
+    () =>
+      (!!globalStates[questionType].length && globalStates[questionType]) ||
+      storedValue
+  );
+
+  useEffect(() => {
+    if (!!globalStates[questionType].length) {
+      setInLocalStorage(globalStates[questionType]);
+    }
+  }, []);
+
+  function setInLocalStorage(trainingSet, index) {
+    setValue(trainingSet);
+  }
+
+  function removeFromLocalStorage() {
+    removeValue();
+  }
+
+  return {
+    trainingSet,
+    setInLocalStorage,
+    removeFromLocalStorage
+  };
+}
+
+export function Trainer(props) {
+  const { storedValue, setValue, removeValue } = useLocalStorage(
+    "currentIndex"
+  );
+  const { questionType } = useParams();
+  const startIndex = storedValue || 0;
+  const { trainingSet, removeFromLocalStorage } = useTrainingSet(questionType);
+  const [trainingCompleted, setTrainingCompleted] = useState(false);
+
+  const [currentQuestion, setCurrentQuestion] = useState(
+    trainingSet[startIndex]
+  );
+  const { currentIndex, finalIndex, nextIndex } = useIndex(
+    startIndex,
+    trainingSet.length
+  );
+
+  function nextQuestion() {
+    nextIndex();
+    setValue(currentIndex);
+    setCurrentQuestion(trainingSet[currentIndex]);
+  }
+
+  function handleTrainingCompletion() {
+    setTrainingCompleted(true);
+    removeFromLocalStorage();
+    // handleResult(questionIndex, comletionStatus);
+    removeValue();
+  }
+
+  function handleQuestionCompletion(comletionStatus) {
+    if (currentIndex !== finalIndex) {
+      nextQuestion();
+    } else {
+      handleTrainingCompletion(comletionStatus);
+    }
   }
 
   return (
     <div>
-      {finalQuestionReached && <div>done</div>}
-      {!finalQuestionReached && (
-        <QuestionCard
-          question={currentQuestion.source.question}
-          answer={currentQuestion.source.answer}
-        />
+      {!trainingCompleted && currentQuestion && (
+        <div>
+          <QuestionCard
+            question={currentQuestion.question}
+            answer={currentQuestion.answer}
+          />
+          <CompletionPanel
+            onCompletion={handleQuestionCompletion}
+          ></CompletionPanel>
+        </div>
       )}
-      <CompletionPanel
-        questionIndex={currentQuestion.index}
-        onCompletion={handleCompletion}
-      ></CompletionPanel>
     </div>
   );
 }
