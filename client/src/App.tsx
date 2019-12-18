@@ -1,12 +1,13 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
-import { Button } from "evergreen-ui";
+// Views
+import { Dashboard, Training, TrainingSelection, Interview } from "views";
 
+import { Button } from "evergreen-ui";
 import { GlobalStateProvider } from "utils/dataStore";
 import List from "components/List";
 import Filter from "components/Filter";
-import { Trainer } from "components/Trainer";
 
 import style from "./App.module.scss";
 
@@ -36,9 +37,14 @@ const App: React.FC = () => {
             <Route exact path="/">
               <Search />
             </Route>
-            <Route path="/trainer/:questionType">
-              <Trainer />
-            </Route>
+            <Route path="/dashboard" component={Dashboard}></Route>
+
+            <Route
+              path="/trainingSelection"
+              component={TrainingSelection}
+            ></Route>
+            <Route path="/trainer" component={Training}></Route>
+            <Route path="/dashboard" component={Interview}></Route>
           </Switch>
         </div>
       </Router>

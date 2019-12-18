@@ -1,11 +1,13 @@
-import { SET_QUESTIONS, SET_SEARCHTERM } from "./actionConst";
+import { SET_QUESTIONS, SET_SEARCHTERM, SET_TRAINING } from "./actionConst";
+import { act } from "@testing-library/react";
 
 type state = ReturnType<typeof questionReducer>;
 
 export const initialState = {
   categories: [],
   questions: [],
-  searchTerm: "javascript"
+  searchTerm: "javascript",
+  trainingSet: []
 };
 
 /* Define a context and a reducer for updating the context */
@@ -18,6 +20,11 @@ export const questionReducer = (
       return {
         ...state,
         questions: [...action.payload]
+      };
+    case SET_TRAINING:
+      return {
+        ...state,
+        trainingSet: [...action.payload]
       };
     case SET_SEARCHTERM:
       return {

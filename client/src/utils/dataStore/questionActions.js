@@ -1,4 +1,4 @@
-import { SET_SEARCHTERM, SET_QUESTIONS } from "./actionConst";
+import { SET_SEARCHTERM, SET_QUESTIONS, SET_TRAINING } from "./actionConst";
 
 export const createSearchAction = searchTerm => ({
   type: SET_SEARCHTERM,
@@ -7,5 +7,10 @@ export const createSearchAction = searchTerm => ({
 
 export const createLoadedQuestionsAction = questions => ({
   type: SET_QUESTIONS,
+  payload: questions
+});
+
+export const createLoadedTrainingSet = questions => ({
+  type: SET_TRAINING,
   payload: questions
 });

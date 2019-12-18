@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 // Hooks
-import { useParams } from "react-router-dom";
 import { useLocalStorage } from "utils/hooks";
-import useGlobalState from "utils/dataStore";
 import { useIndex } from "./useIndex";
 import { useResultCounter } from "./useResultCounter";
 
@@ -22,82 +20,58 @@ function CompletionPanel({ onCompletion }) {
   );
 }
 
-// TODO: persist index of question set
-//TODO: handle ids not complete question objects
-
-function useTrainingSet(questionType) {
-  const { storedValue, setValue, removeValue } = useLocalStorage(questionType);
-  const globalStates = useGlobalState();
-
-  const [trainingSet] = useState(
-    () =>
-      (!!globalStates[questionType].length && globalStates[questionType]) ||
-      storedValue
+export function Trainer({ trainingSet }) {
+  const { finalResults, storeResult } = useResultCounter();
+  const { storedValue: storedIndex, setValue, removeValue } = useLocalStorage(
+    "currentIndex",
+    0
   );
-
-  useEffect(() => {
-    if (!!globalStates[questionType].length) {
-      setInLocalStorage(globalStates[questionType]);
-    }
-  }, []);
-
-  function setInLocalStorage(trainingSet, index) {
-    setValue(trainingSet);
-  }
-
-  function removeFromLocalStorage() {
-    removeValue();
-  }
-
-  return {
-    trainingSet,
-    setInLocalStorage,
-    removeFromLocalStorage
-  };
-}
-
-export function Trainer(props) {
-  const { storedValue, setValue, removeValue } = useLocalStorage(
-    "currentIndex"
-  );
-  const { questionType } = useParams();
-  const startIndex = storedValue || 0;
-  const { trainingSet, removeFromLocalStorage } = useTrainingSet(questionType);
-  const [trainingCompleted, setTrainingCompleted] = useState(false);
 
   const [currentQuestion, setCurrentQuestion] = useState(
-    trainingSet[startIndex]
+    trainingSet[storedIndex]
   );
   const { currentIndex, finalIndex, nextIndex } = useIndex(
-    startIndex,
+    storedIndex,
     trainingSet.length
   );
 
+  // set initial question
+  useEffect(() => {
+    setCurrentQuestion(trainingSet[currentIndex]);
+  }, [trainingSet.length]);
+
+  // change to next question
+  useEffect(() => {
+    setCurrentQuestion(trainingSet[currentIndex]);
+    setValue(currentIndex);
+  }, [currentIndex]);
+
+  // collect final result of training
+  useEffect(() => {
+    if (currentIndex === finalIndex) {
+      console.log("complete", finalResults);
+      removeValue();
+    }
+  });
+
   function nextQuestion() {
     nextIndex();
-    setValue(currentIndex);
     setCurrentQuestion(trainingSet[currentIndex]);
   }
 
-  function handleTrainingCompletion() {
-    setTrainingCompleted(true);
-    removeFromLocalStorage();
-    // handleResult(questionIndex, comletionStatus);
-    removeValue();
-  }
-
-  function handleQuestionCompletion(comletionStatus) {
+  function handleQuestionCompletion(completionStatus) {
+    storeResult(currentQuestion.id, completionStatus);
     if (currentIndex !== finalIndex) {
       nextQuestion();
-    } else {
-      handleTrainingCompletion(comletionStatus);
     }
   }
 
   return (
     <div>
-      {!trainingCompleted && currentQuestion && (
-        <div>
+      {!currentQuestion ? (
+        "loading"
+      ) : (
+        <>
           <QuestionCard
             question={currentQuestion.question}
             answer={currentQuestion.answer}
@@ -105,7 +79,7 @@ export function Trainer(props) {
           <CompletionPanel
             onCompletion={handleQuestionCompletion}
           ></CompletionPanel>
-        </div>
+        </>
       )}
     </div>
   );

@@ -1,8 +1,10 @@
 import React, { createContext, useContext, useReducer } from "react";
-import { fetchQuestions } from "../api";
+
+import { fetchQuestions, fetchQuestionsById } from "../api";
 import { questionReducer, initialState } from "./questionsReducer";
 import {
   createLoadedQuestionsAction,
+  createLoadedTrainingSet,
   createSearchAction
 } from "./questionActions";
 
@@ -29,6 +31,17 @@ const useGlobalState = () => {
   const [state, dispatch] = useContext(GlobalStateContext);
   // TODO: add all provider logic here.
   // TODO: change name to indicate async behaviour
+
+  const fetchTrainingSet = (ids = []) => {
+    fetchQuestionsById(ids)
+      .then(questions => {
+        dispatch(createLoadedTrainingSet(questions));
+      })
+      .catch(error => {
+        throw Error("question not fetched");
+      });
+  };
+
   const setQuestions = searchTerm => {
     dispatch(createSearchAction(searchTerm));
     fetchQuestions(searchTerm)
@@ -42,6 +55,8 @@ const useGlobalState = () => {
 
   return {
     setQuestions,
+    fetchTrainingSet,
+    trainingSet: state.trainingSet,
     questions: [...state.questions],
     searchTerm: state.searchTerm
   };

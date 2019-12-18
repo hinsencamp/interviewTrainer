@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { COMPLETED, FAILED } from "./resultConst";
 
 enum Status {
@@ -12,15 +12,14 @@ export function useResultCounter() {
     [FAILED]: []
   });
 
-  function handleResult(index: number, completionStatus: Status) {
+  function storeResult(id: string, completionStatus: Status) {
     setFinalResults({
       ...finalResults,
-      [completionStatus]: [...finalResults[completionStatus], index]
+      [completionStatus]: [...finalResults[completionStatus], id]
     });
-    console.log(finalResults);
   }
   return {
     finalResults,
-    handleResult
+    storeResult
   };
 }
