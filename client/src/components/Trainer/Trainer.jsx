@@ -6,15 +6,17 @@ import { useIndex } from "./useIndex";
 import { useResultCounter } from "./useResultCounter";
 
 // UI
-import { Button } from "evergreen-ui";
-import { QuestionCard } from "components/QuestionCard";
+import { Button, Intent } from "@blueprintjs/core";
 
+import { QuestionCard } from "components/QuestionCard";
 import { COMPLETED, FAILED } from "./resultConst";
 
 function CompletionPanel({ onCompletion }) {
   return (
     <div>
-      <Button onClick={() => onCompletion(COMPLETED)}>Answered</Button>
+      <Button intent={Intent.SUCCESS} onClick={() => onCompletion(COMPLETED)}>
+        Answered
+      </Button>
       <Button onClick={() => onCompletion(FAILED)}>No Idea</Button>
     </div>
   );
@@ -36,11 +38,13 @@ export function Trainer({ trainingSet }) {
   );
 
   // set initial question
+  /* eslint react-hooks/exhaustive-deps: 0 */
   useEffect(() => {
     setCurrentQuestion(trainingSet[currentIndex]);
   }, [trainingSet.length]);
 
   // change to next question
+  /* eslint react-hooks/exhaustive-deps: 0 */
   useEffect(() => {
     setCurrentQuestion(trainingSet[currentIndex]);
     setValue(currentIndex);
@@ -49,7 +53,6 @@ export function Trainer({ trainingSet }) {
   // collect final result of training
   useEffect(() => {
     if (currentIndex === finalIndex) {
-      console.log("complete", finalResults);
       removeValue();
     }
   });
@@ -75,10 +78,12 @@ export function Trainer({ trainingSet }) {
           <QuestionCard
             question={currentQuestion.question}
             answer={currentQuestion.answer}
-          />
-          <CompletionPanel
-            onCompletion={handleQuestionCompletion}
-          ></CompletionPanel>
+          >
+            <QuestionCard.Footer>
+              <CompletionPanel onCompletion={handleQuestionCompletion} />
+              {/* show complete button */}
+            </QuestionCard.Footer>
+          </QuestionCard>
         </>
       )}
     </div>

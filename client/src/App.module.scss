@@ -3,8 +3,6 @@
   align-items: flex-start;
   flex-direction: row;
   height: 100vh;
-  margin: 0 20px;
-  padding: 20px 0;
   overflow: hidden;
 }
 
@@ -26,4 +24,8 @@
   border: 1px solid lightgray;
   overflow-y: auto;
   overflow-x: hidden;
+}
+
+.content-container {
+  flex-grow: 2;
 }

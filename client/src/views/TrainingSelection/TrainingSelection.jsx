@@ -1,18 +1,48 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import routes from "utils/routes";
 
-// TODO: dont use ids for navigation, ids' are SEARCH param!
-// https://usehooks.com/useRouter/
-export default function TrainingSelection() {
-  const foo = ["ap1i_24Biwg6WSP13qIn", "dJ1i_24Biwg6WSP13qIn"];
+import { Card, Elevation } from "@blueprintjs/core";
+import View from "components/View";
+
+import style from "./TrainingSection.module.scss";
+
+function TrainingCard({ name = "", link = {} }) {
   return (
-    <div>
-      TrainingSelection
+    <Card
+      className={style.trainingCard}
+      interactive={true}
+      elevation={Elevation.TWO}
+    >
       <Link
-        to={{ pathname: "/trainer/", search: `?ids=${JSON.stringify(foo)}` }}
+        to={{ ...link, pathname: link.pathname + `/${name.toLowerCase()}` }}
       >
-        About
+        {name}
       </Link>
-    </div>
+    </Card>
+  );
+}
+
+export default function TrainingSelection() {
+  const foo = {
+    pathname: routes.trainer,
+    search: `?ids=${JSON.stringify([
+      "ap1i_24Biwg6WSP13qIn",
+      "dJ1i_24Biwg6WSP13qIn"
+    ])}`
+  };
+
+  return (
+    <View>
+      <View.Header headline={"Training Selection"} />
+      <View.Body>
+        <div className={style.trainingTypes}>
+          <TrainingCard name="Frontend" link={foo} />
+          <TrainingCard name="FullStack" />
+          <TrainingCard name="Backend" />
+          <TrainingCard name="Design" />
+        </div>
+      </View.Body>
+    </View>
   );
 }

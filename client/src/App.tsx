@@ -1,53 +1,36 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 
-// Views
 import { Dashboard, Training, TrainingSelection, Interview } from "views";
-
-import { Button } from "evergreen-ui";
 import { GlobalStateProvider } from "utils/dataStore";
-import List from "components/List";
-import Filter from "components/Filter";
+
+import SideMenu from "components/SideMenu";
+
+import routes from "utils/routes";
 
 import style from "./App.module.scss";
 
-function Search() {
+function ContentSwitch() {
   return (
-    <div className={style.search}>
-      <div className={style.header}>
-        <Filter />
-        <Button appearance="minimal" iconBefore="play" marginLeft={5}>
-          <Link to="/trainer/questions">Start Training</Link>
-        </Button>
-      </div>
-
-      <div className={style.container}>
-        <List />
-      </div>
-    </div>
+    <Switch>
+      <Route exact path={routes.root} component={Dashboard} />
+      <Route exact path={routes.dashboard} component={Dashboard} />
+      <Route exact path={routes.trainings} component={TrainingSelection} />
+      <Route exact path={routes.trainer + "/:type"} component={Training} />
+      <Route exact path={routes.interview} component={Interview} />
+    </Switch>
   );
 }
 
 const App: React.FC = () => {
   return (
     <GlobalStateProvider>
-      <Router>
+      <BrowserRouter>
         <div className={style.app}>
-          <Switch>
-            <Route exact path="/">
-              <Search />
-            </Route>
-            <Route path="/dashboard" component={Dashboard}></Route>
-
-            <Route
-              path="/trainingSelection"
-              component={TrainingSelection}
-            ></Route>
-            <Route path="/trainer" component={Training}></Route>
-            <Route path="/dashboard" component={Interview}></Route>
-          </Switch>
+          <SideMenu />
+          <ContentSwitch />
         </div>
-      </Router>
+      </BrowserRouter>
     </GlobalStateProvider>
   );
 };

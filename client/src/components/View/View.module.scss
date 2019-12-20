@@ -1,0 +1,26 @@
+.view {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  flex-grow: 1;
+  height: 100vh;
+}
+
+.header {
+  flex-basis: 50px;
+  flex-grow: 0;
+  flex-shrink: 0;
+  margin-bottom: 20px;
+}
+
+.h1 {
+  line-height: 40px;
+  font-size: 26px;
+  font-weight: 600;
+  margin: 0 0 10px;
+  padding: 0;
+}
+
+.body {
+  flex-grow: 1;
+}

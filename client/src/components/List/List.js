@@ -5,6 +5,7 @@ import useGlobalState from "utils/dataStore";
 export default function List() {
   const { questions, searchTerm, setQuestions } = useGlobalState();
 
+  /* eslint react-hooks/exhaustive-deps: 0 */
   useEffect(() => {
     setQuestions(searchTerm);
   }, [searchTerm]);

@@ -1,17 +1,69 @@
 import React from "react";
-import { Pane, Text, Heading } from "evergreen-ui";
+
 import { Remarkable } from "remarkable";
+
+import { Text } from "@blueprintjs/core";
+
+import { Card, Elevation } from "@blueprintjs/core";
+
+import style from "./QuestionCard.module.scss";
 
 var md = new Remarkable("commonmark");
 
 // TODO: Make showing solution optional
 // TODO: fix security concern related to XSS
 
-export function QuestionCard({ question, answer }) {
+function MockParagraph({ headline, children }) {
   return (
-    <Pane background="tint1" padding={24} marginBottom={16}>
-      <Heading size={400}>{question}</Heading>
-      <Text dangerouslySetInnerHTML={{ __html: md.render(answer) }} />
-    </Pane>
+    <div className={style.paragraph}>
+      <h4 className="bp3-heading">{headline}</h4>
+      <Text>{children}</Text>
+    </div>
   );
 }
+
+function Paragraph({ headline, contentHtml }) {
+  return (
+    <div className={style.paragraph}>
+      <h4 className="bp3-heading">{headline}</h4>
+      <div dangerouslySetInnerHTML={{ __html: contentHtml }} />
+    </div>
+  );
+}
+
+export function QuestionCard({ category, question, answer, children }) {
+  return (
+    <Card elevation={Elevation.ONE}>
+      <h2 className="bp3-heading">{question}</h2>
+      <MockParagraph headline={"Context"}>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliquat enim ad minim
+        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+        commodo.
+      </MockParagraph>
+
+      <Paragraph headline="Technical Details" contentHtml={md.render(answer)} />
+      <MockParagraph headline={"Project Implication"}>
+        Sed do eiusmod tempor incididunt ut labore et dolore magna aliquat enim
+        ad minim veniam.
+      </MockParagraph>
+      <MockParagraph headline={"Further Resources"}>
+        <ul>
+          <li>
+            <Text>incididunt ut labore et dolore</Text>
+          </li>
+          <li>
+            <Text>dolore magna</Text>
+          </li>
+        </ul>
+      </MockParagraph>
+      {children}
+    </Card>
+  );
+}
+
+function Footer(props) {
+  return <div>{props.children}</div>;
+}
+
+QuestionCard.Footer = Footer;

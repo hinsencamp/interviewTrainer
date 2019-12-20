@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { COMPLETED, FAILED } from "./resultConst";
 
 enum Status {

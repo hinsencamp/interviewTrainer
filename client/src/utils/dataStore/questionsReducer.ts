@@ -1,5 +1,4 @@
 import { SET_QUESTIONS, SET_SEARCHTERM, SET_TRAINING } from "./actionConst";
-import { act } from "@testing-library/react";
 
 type state = ReturnType<typeof questionReducer>;
 

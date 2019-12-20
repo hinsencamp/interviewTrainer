@@ -1,0 +1,28 @@
+.view {
+  padding: 20px;
+  flex-grow: 1;
+  height: 100vh;
+}
+
+.h1 {
+  line-height: 40px;
+  font-size: 26px;
+  font-weight: 600;
+  margin: 0 0 10px;
+  padding: 0;
+}
+
+.trainingTypes {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.trainingCard {
+  height: 150px;
+  width: 250px;
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
