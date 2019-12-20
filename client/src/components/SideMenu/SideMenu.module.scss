@@ -1,7 +1,9 @@
 @import "~assets/styles/colors";
 
 .sideMenu {
-  background: grey;
+  background: $DarkShade;
+  color: $LightShade;
+
   height: 100vh;
   flex-basis: 160px;
   flex-grow: 0;
@@ -30,6 +32,15 @@
 
 .menuElement {
   margin-bottom: 20px;
+
+  a {
+    color: $LightShade;
+
+    &:hover {
+      color: darken($LightShade, 10%);
+      text-decoration: none;
+    }
+  }
 }
 
 .icon {

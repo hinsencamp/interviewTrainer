@@ -1,16 +1,20 @@
+@import "~assets/styles/colors";
+
 .view {
   display: flex;
   flex-direction: column;
-  padding: 20px;
+  padding-bottom: 0;
   flex-grow: 1;
   height: 100vh;
+  background: $LightShade;
 }
 
 .header {
+  padding: 15px;
   flex-basis: 50px;
   flex-grow: 0;
   flex-shrink: 0;
-  margin-bottom: 20px;
+  // margin-bottom: 10px;
 }
 
 .h1 {
@@ -19,8 +23,12 @@
   font-weight: 600;
   margin: 0 0 10px;
   padding: 0;
+  color: $DarkShade;
 }
 
 .body {
   flex-grow: 1;
+  padding: 15px;
+  padding-top: 5px;
+  overflow-x: auto;
 }

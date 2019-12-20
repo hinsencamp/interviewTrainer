@@ -11,9 +11,11 @@ import { Button, Intent } from "@blueprintjs/core";
 import { QuestionCard } from "components/QuestionCard";
 import { COMPLETED, FAILED } from "./resultConst";
 
+import style from "./Trainer.module.scss";
+
 function CompletionPanel({ onCompletion }) {
   return (
-    <div>
+    <div className={style.completionPanel}>
       <Button intent={Intent.SUCCESS} onClick={() => onCompletion(COMPLETED)}>
         Answered
       </Button>
@@ -70,7 +72,7 @@ export function Trainer({ trainingSet }) {
   }
 
   return (
-    <div>
+    <>
       {!currentQuestion ? (
         "loading"
       ) : (
@@ -86,6 +88,6 @@ export function Trainer({ trainingSet }) {
           </QuestionCard>
         </>
       )}
-    </div>
+    </>
   );
 }

@@ -19,7 +19,6 @@ export default function Training() {
   useEffect(() => {
     const ids = JSON.parse(queryString.parse(search).ids);
     fetchTrainingSet(ids);
-    console.log();
   }, []);
 
   return (
