@@ -1,4 +1,7 @@
 .completionPanel {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
   button {
     margin-right: 10px;
   }

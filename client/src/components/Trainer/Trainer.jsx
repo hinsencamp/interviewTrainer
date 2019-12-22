@@ -7,22 +7,11 @@ import { useResultCounter } from "./useResultCounter";
 
 // UI
 import { Button, Intent } from "@blueprintjs/core";
-
 import { QuestionCard } from "components/QuestionCard";
+import CompletionDialog from "./CompletionDialog";
 import { COMPLETED, FAILED } from "./resultConst";
 
 import style from "./Trainer.module.scss";
-
-function CompletionPanel({ onCompletion }) {
-  return (
-    <div className={style.completionPanel}>
-      <Button intent={Intent.SUCCESS} onClick={() => onCompletion(COMPLETED)}>
-        Answered
-      </Button>
-      <Button onClick={() => onCompletion(FAILED)}>No Idea</Button>
-    </div>
-  );
-}
 
 export function Trainer({ trainingSet }) {
   const { finalResults, storeResult } = useResultCounter();
@@ -38,6 +27,7 @@ export function Trainer({ trainingSet }) {
     storedIndex,
     trainingSet.length
   );
+  const [isComplete, setComplete] = useState(false);
 
   // set initial question
   /* eslint react-hooks/exhaustive-deps: 0 */
@@ -68,26 +58,44 @@ export function Trainer({ trainingSet }) {
     storeResult(currentQuestion.id, completionStatus);
     if (currentIndex !== finalIndex) {
       nextQuestion();
+    } else {
+      setComplete(true);
     }
+  }
+
+  function handleClose() {
+    setComplete(false);
   }
 
   return (
     <>
-      {!currentQuestion ? (
-        "loading"
-      ) : (
-        <>
-          <QuestionCard
-            question={currentQuestion.question}
-            answer={currentQuestion.answer}
-          >
-            <QuestionCard.Footer>
-              <CompletionPanel onCompletion={handleQuestionCompletion} />
-              {/* show complete button */}
-            </QuestionCard.Footer>
-          </QuestionCard>
-        </>
-      )}
+      <QuestionCard
+        className={!currentQuestion && "bp3-skeleton"}
+        question={currentQuestion && currentQuestion.question}
+        answer={currentQuestion && currentQuestion.answer}
+      >
+        <QuestionCard.Footer>
+          <div className={style.completionPanel}>
+            <Button
+              icon="floppy-disk"
+              onClick={() => handleQuestionCompletion(FAILED)}
+            >
+              Save for Repetition
+            </Button>
+            <Button
+              intent={Intent.SUCCESS}
+              onClick={() => handleQuestionCompletion(COMPLETED)}
+            >
+              Next
+            </Button>
+          </div>
+        </QuestionCard.Footer>
+      </QuestionCard>
+      <CompletionDialog
+        finalResults={finalResults}
+        handleClose={handleClose}
+        isOpen={isComplete}
+      />
     </>
   );
 }

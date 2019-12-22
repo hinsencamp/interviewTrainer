@@ -31,9 +31,15 @@ function Paragraph({ headline, contentHtml }) {
   );
 }
 
-export function QuestionCard({ category, question, answer, children }) {
+export function QuestionCard({
+  category,
+  question,
+  answer,
+  children,
+  ...props
+}) {
   return (
-    <Card elevation={Elevation.ONE}>
+    <Card elevation={Elevation.ONE} {...props}>
       <h2 className="bp3-heading">{question}</h2>
       <MockParagraph headline={"Context"}>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
