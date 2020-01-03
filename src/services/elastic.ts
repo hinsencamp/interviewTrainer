@@ -1,6 +1,5 @@
 import elasticsearch, { Client } from "elasticsearch";
 import config from "../config";
-import { auto } from "async";
 
 let client: Client;
 
@@ -72,8 +71,7 @@ function Search(payload: object): Promise<number[] | object | void> {
   return client
     .search(payload)
     .then((result: { hits: { total: number; hits: object } }) => {
-      console.log("request meta data", result.hits.total);
-
+      console.log("request meta data", result.hits);
       return result.hits.hits;
     })
     .catch((e: object) => {
@@ -160,4 +158,20 @@ export async function termAggregation(
     .catch((e: object) => {
       throw new Error("data could not be retrieved from elastic");
     });
+}
+
+export async function idQuery(ids: string, index: string) {
+  const body = {
+    query: {
+      terms: {
+        _id: JSON.parse(ids)
+      }
+    }
+  };
+  const payload = {
+    index,
+    body
+  };
+
+  return Search(payload);
 }

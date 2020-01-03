@@ -29,8 +29,6 @@ This also allows us to keep all of this state logic in this one file
 
 const useGlobalState = () => {
   const [state, dispatch] = useContext(GlobalStateContext);
-  // TODO: add all provider logic here.
-  // TODO: change name to indicate async behaviour
 
   const fetchTrainingSet = (ids = []) => {
     fetchQuestionsById(ids)
@@ -42,6 +40,7 @@ const useGlobalState = () => {
       });
   };
 
+  // TODO: change name to indicate async behaviour
   const setQuestions = searchTerm => {
     dispatch(createSearchAction(searchTerm));
     fetchQuestions(searchTerm)

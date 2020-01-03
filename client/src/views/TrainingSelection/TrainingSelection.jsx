@@ -27,8 +27,8 @@ export default function TrainingSelection() {
   const foo = {
     pathname: routes.trainer,
     search: `?ids=${JSON.stringify([
-      "ap1i_24Biwg6WSP13qIn",
-      "dJ1i_24Biwg6WSP13qIn"
+      "hZDra28ByVzq0AuwY_p_",
+      "hpDra28ByVzq0AuwY_p_"
     ])}`
   };
 

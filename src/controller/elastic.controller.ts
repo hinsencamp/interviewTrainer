@@ -2,6 +2,7 @@ import { Request, Response } from "express";
 
 import {
   basicQuery,
+  idQuery,
   multiQuery,
   bulkImport,
   termAggregation
@@ -47,6 +48,18 @@ async function queryAll(req: Request, res: Response): Promise<void> {
   }
 }
 
+async function queryById(req: Request, res: Response): Promise<void> {
+  const { ids } = req.query;
+  const index = "questions";
+
+  try {
+    const result = await idQuery(ids, index);
+    res.send({ result });
+  } catch (e) {
+    res.send({ error: e });
+  }
+}
+
 async function aggregateTerms(req: Request, res: Response): Promise<void> {
   const { type, field } = req.query;
   const index = "questions";
@@ -59,4 +72,10 @@ async function aggregateTerms(req: Request, res: Response): Promise<void> {
   }
 }
 
-export default { queryQuestion, setDemoData, queryAll, aggregateTerms };
+export default {
+  queryQuestion,
+  setDemoData,
+  queryAll,
+  aggregateTerms,
+  queryById
+};

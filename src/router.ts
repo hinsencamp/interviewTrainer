@@ -8,6 +8,7 @@ router.route("/demodata").post(controllers.setDemoData);
 router.route("/question").get(controllers.queryQuestion);
 router.route("/multi-field").get(controllers.queryAll);
 router.route("/category").get(controllers.aggregateTerms);
+router.route("/questionById").get(controllers.queryById);
 // /api/question/:id
 // router
 //   .route('/:id')
