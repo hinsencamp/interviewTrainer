@@ -1,6 +1,10 @@
 import React, { createContext, useContext, useReducer } from "react";
 
-import { fetchQuestions, fetchQuestionsById } from "../api";
+import {
+  fetchQuestions,
+  fetchQuestionsById,
+  fetchToken as fetchTokenAPI
+} from "../api";
 import { questionReducer, initialState } from "./questionsReducer";
 import {
   createLoadedQuestionsAction,
@@ -30,6 +34,16 @@ This also allows us to keep all of this state logic in this one file
 const useGlobalState = () => {
   const [state, dispatch] = useContext(GlobalStateContext);
 
+  const fetchToken = (name, pw) => {
+    fetchTokenAPI(name, pw)
+      .then(user => {
+        console.log("user", user);
+      })
+      .catch(err => {
+        console.log("user", err);
+      });
+  };
+
   const fetchTrainingSet = (ids = []) => {
     fetchQuestionsById(ids)
       .then(questions => {
@@ -55,6 +69,7 @@ const useGlobalState = () => {
   return {
     setQuestions,
     fetchTrainingSet,
+    fetchToken,
     trainingSet: state.trainingSet,
     questions: [...state.questions],
     searchTerm: state.searchTerm

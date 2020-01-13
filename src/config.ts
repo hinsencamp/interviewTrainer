@@ -1,6 +1,7 @@
 const devConfig = {
   elasticURL: "http://localhost:9200",
-  frontendURL: "http://localhost:3001"
+  frontendURL: "http://localhost:3001",
+  authURL: "http://localhost:3005/api"
 };
 
 const basicConfig = {
@@ -10,7 +11,8 @@ const basicConfig = {
 
 const prodConfig = {
   elasticURL: process.env.ELASTIC_PORT || "",
-  frontendURL: ""
+  frontendURL: "",
+  authURL: ""
 };
 
 const config =

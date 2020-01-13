@@ -9,6 +9,13 @@
   background: $LightShade;
 }
 
+.centered {
+  justify-content: center;
+  align-items: center;
+  flex-direction: initial;
+  flex-grow: inherit;
+}
+
 .header {
   padding: 15px;
   flex-basis: 50px;
@@ -31,4 +38,8 @@
   padding: 15px;
   padding-top: 5px;
   overflow-x: auto;
+}
+
+.bodyCentered {
+  flex-grow: 0;
 }

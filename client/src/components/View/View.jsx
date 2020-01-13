@@ -1,9 +1,17 @@
-import React from "react";
+import React, { useContext, createContext } from "react";
 
 import style from "./View.module.scss";
 
-export default function View(props) {
-  return <div className={style.view}>{props.children}</div>;
+const ViewContext = createContext(null);
+
+export default function View({ centeredContent, ...props }) {
+  return (
+    <ViewContext.Provider value={{ centeredContent }}>
+      <div className={`${style.view} ${centeredContent && style.centered}`}>
+        {props.children}
+      </div>
+    </ViewContext.Provider>
+  );
 }
 
 function Header(props) {
@@ -16,7 +24,16 @@ function Header(props) {
 }
 
 function Body(props) {
-  return <div className={style.body}>{props.children}</div>;
+  const viewContext = useContext(ViewContext);
+
+  return (
+    <div
+      className={`${style.body} ${viewContext.centeredContent &&
+        style.bodyCentered}`}
+    >
+      {props.children}
+    </div>
+  );
 }
 
 View.Header = Header;

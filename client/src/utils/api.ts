@@ -5,6 +5,19 @@ interface Questions {
   _source: object;
 }
 
+export async function fetchToken(name: string, password: string) {
+  const res = await fetch(API + `login`, {
+    method: "POST",
+    body: JSON.stringify({ name, password }),
+    headers: {
+      "Content-Type": "application/json"
+    }
+  });
+
+  const results = await res.json();
+  return results;
+}
+
 // TODO: CRUD logic wrapper and only do data transformation here.
 export async function fetchQuestions(searchTerm: string) {
   const res = await fetch(API + `multi-field?query=${searchTerm}`);

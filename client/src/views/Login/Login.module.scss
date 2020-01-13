@@ -1,0 +1,11 @@
+.inputGroup {
+  //   margin: 10px 0px;
+}
+
+.loginCard {
+  padding: 20px;
+
+  & > * {
+    margin: 10px 0px;
+  }
+}
