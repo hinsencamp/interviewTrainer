@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 
-import { getAllUser, loginUser } from "../services/user";
+import { getAllUser, isUserAuthenticated, loginUser } from "../services/user";
 
 export async function login(req: Request, res: Response): Promise<void> {
   const { name, password } = req.body;
@@ -13,4 +13,26 @@ export async function login(req: Request, res: Response): Promise<void> {
   }
 }
 
-export default { login };
+export async function isAuthenticated(
+  req: Request,
+  res: Response
+): Promise<void> {
+  const token: string | undefined = req.headers.authorization;
+
+  if (!token) {
+    res.status(404).send({ message: "token undefined" });
+    return;
+  }
+
+  const tokenArray = token.split(" "); // splits in "bearer" and the token itself
+  console.log("token reaching the backend", tokenArray);
+  try {
+    const result = await isUserAuthenticated(tokenArray[1]);
+    console.log("authService result", result);
+    res.status(200).send({ ...result });
+  } catch (e) {
+    res.status(404).send({ message: e });
+  }
+}
+
+export default { login, isAuthenticated };

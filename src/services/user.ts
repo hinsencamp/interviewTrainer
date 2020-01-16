@@ -19,6 +19,11 @@ interface LoginResponse {
   token: string;
 }
 
+interface isUserAuthenticatedResponse {
+  status: number;
+  message: string;
+}
+
 export async function loginUser(
   name: string,
   password: string
@@ -33,6 +38,26 @@ export async function loginUser(
     });
     const results = await res.json();
     return results;
+  } catch (e) {
+    throw new Error(e);
+  }
+}
+
+export async function isUserAuthenticated(
+  token: string | undefined
+): Promise<isUserAuthenticatedResponse> {
+  if (!token) {
+    throw new Error("no token received");
+  }
+
+  try {
+    const res = await fetch(config.authURL + "/auth/verify", {
+      method: "GET",
+      headers: {
+        authentication: `${token}`
+      }
+    });
+    return { status: res.status, message: res.statusText };
   } catch (e) {
     throw new Error(e);
   }

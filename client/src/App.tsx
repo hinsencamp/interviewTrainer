@@ -1,6 +1,5 @@
-import React, { ComponentClass } from "react";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
-
+import React from "react";
+import { Redirect, BrowserRouter, Switch, Route } from "react-router-dom";
 import {
   Dashboard,
   Training,
@@ -8,13 +7,41 @@ import {
   Interview,
   Login
 } from "views";
+import { useAuth } from "utils/hooks";
+import useGlobalState from "utils/dataStore";
+
 import { GlobalStateProvider } from "utils/dataStore";
-
 import SideMenu from "components/SideMenu";
-
 import routes from "utils/routes";
-
 import style from "./App.module.scss";
+
+interface IPrivateRoute {
+  exact: boolean;
+  path: string;
+  Component: Element;
+}
+
+function PrivateRoute(props: any): any {
+  const { token } = useGlobalState();
+  const { Component } = props;
+  return (
+    <Route
+      {...props}
+      render={({ location }) =>
+        !!token ? (
+          <Component />
+        ) : (
+          <Redirect
+            to={{
+              pathname: "/login",
+              state: { from: location }
+            }}
+          />
+        )
+      }
+    />
+  );
+}
 
 function withSideMenu(Component: any) {
   return () => (
@@ -29,26 +56,30 @@ function ContentSwitch() {
   return (
     <Switch>
       <Route exact path={routes.login} component={Login} />
-      <Route exact path={routes.root} component={withSideMenu(Dashboard)} />
-      <Route
+      <PrivateRoute
+        exact
+        path={routes.root}
+        Component={withSideMenu(Dashboard)}
+      />
+      <PrivateRoute
         exact
         path={routes.dashboard}
-        component={withSideMenu(Dashboard)}
+        Component={withSideMenu(Dashboard)}
       />
-      <Route
+      <PrivateRoute
         exact
         path={routes.trainings}
-        component={withSideMenu(TrainingSelection)}
+        Component={withSideMenu(TrainingSelection)}
       />
-      <Route
+      <PrivateRoute
         exact
         path={routes.trainer + "/:type"}
-        component={withSideMenu(Training)}
+        Component={withSideMenu(Training)}
       />
-      <Route
+      <PrivateRoute
         exact
         path={routes.interview}
-        component={withSideMenu(Interview)}
+        Component={withSideMenu(Interview)}
       />
     </Switch>
   );

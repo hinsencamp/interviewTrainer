@@ -9,7 +9,8 @@ import { questionReducer, initialState } from "./questionsReducer";
 import {
   createLoadedQuestionsAction,
   createLoadedTrainingSet,
-  createSearchAction
+  createSearchAction,
+  createTokenAction
 } from "./questionActions";
 
 /* Define a context and a reducer for updating the context */
@@ -31,13 +32,15 @@ Default export is a hook that provides a simple API for updating the global stat
 This also allows us to keep all of this state logic in this one file
 */
 
+// https://coshx.com/storing-jwt-tokens-in-your-react-frontend
+
 const useGlobalState = () => {
   const [state, dispatch] = useContext(GlobalStateContext);
 
   const fetchToken = (name, pw) => {
     fetchTokenAPI(name, pw)
       .then(user => {
-        console.log("user", user);
+        dispatch(createTokenAction(user.token));
       })
       .catch(err => {
         console.log("user", err);
@@ -70,6 +73,7 @@ const useGlobalState = () => {
     setQuestions,
     fetchTrainingSet,
     fetchToken,
+    token: state.token,
     trainingSet: state.trainingSet,
     questions: [...state.questions],
     searchTerm: state.searchTerm

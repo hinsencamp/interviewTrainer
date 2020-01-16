@@ -1,4 +1,6 @@
-import React, { useState, ChangeEvent } from "react";
+import React, { useState, ChangeEvent, useEffect } from "react";
+import { useHistory } from "react-router-dom";
+
 import {
   H3,
   Divider,
@@ -13,21 +15,25 @@ import useGlobalState from "utils/dataStore";
 import style from "./Login.module.scss";
 
 export default function Login() {
+  const history = useHistory();
   const [userValue, setUserValue] = useState("");
   const [pwValue, setPwValue] = useState("");
-  const { fetchToken } = useGlobalState();
+  const { token, fetchToken } = useGlobalState();
+
+  useEffect(() => {
+    console.log(history.location.pathname);
+    if (token) {
+      history.push("/dashboard");
+    }
+  }, [token, history]);
 
   function submit() {
-    // send credentials
-    console.log(userValue, pwValue);
     fetchToken(userValue, pwValue);
-    // receive token in return
-    // put token in header
   }
 
-  //TODO: secure routes through authentication
+  //TODO: add token to request header for secured routes
+  //TODO: create isAuthenticated method to check if the token is valid
   // before routing there, check if token is valid.
-
   return (
     <View centeredContent>
       <View.Body>
@@ -55,7 +61,7 @@ export default function Login() {
           <Button onClick={submit}>Login</Button>
           <Divider />
           <span className=".bp3-text-muted">
-            Don't have an account jet? Sign-up for <a>here</a>!
+            Don't have an account jet? Sign-up for <a href="/">here</a>!
           </span>
         </Card>
       </View.Body>

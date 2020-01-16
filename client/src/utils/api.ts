@@ -18,6 +18,21 @@ export async function fetchToken(name: string, password: string) {
   return results;
 }
 
+export async function isAuthenticated(token: string): Promise<Boolean> {
+  if (!token) {
+    console.log("authentication failed");
+    return false;
+  }
+
+  const res = await fetch(API + `authenticated`, {
+    method: "GET",
+    headers: {
+      Authorization: `Bearer ${token}`
+    }
+  });
+  return res.status === 200;
+}
+
 // TODO: CRUD logic wrapper and only do data transformation here.
 export async function fetchQuestions(searchTerm: string) {
   const res = await fetch(API + `multi-field?query=${searchTerm}`);

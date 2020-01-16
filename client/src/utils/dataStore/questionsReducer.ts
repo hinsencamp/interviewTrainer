@@ -1,4 +1,9 @@
-import { SET_QUESTIONS, SET_SEARCHTERM, SET_TRAINING } from "./actionConst";
+import {
+  SET_QUESTIONS,
+  SET_SEARCHTERM,
+  SET_TRAINING,
+  SET_TOKEN
+} from "./actionConst";
 
 type state = ReturnType<typeof questionReducer>;
 
@@ -6,7 +11,8 @@ export const initialState = {
   categories: [],
   questions: [],
   searchTerm: "javascript",
-  trainingSet: []
+  trainingSet: [],
+  token: ""
 };
 
 /* Define a context and a reducer for updating the context */
@@ -29,6 +35,11 @@ export const questionReducer = (
       return {
         ...state,
         searchTerm: action.payload
+      };
+    case SET_TOKEN:
+      return {
+        ...state,
+        token: action.payload
       };
     default:
       return state;
