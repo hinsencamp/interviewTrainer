@@ -1,9 +1,4 @@
-// add the user service to the docker-compose file
-// --> how to update the user service then though?
-
-// create functions to interact with the user service.
-
-// it should proxy requests from the frontend further to the auth service.
+import { Request } from "express";
 import fetch from "node-fetch";
 import config from "../config";
 
@@ -17,11 +12,6 @@ interface User {
 
 interface LoginResponse {
   token: string;
-}
-
-interface isUserAuthenticatedResponse {
-  status: number;
-  message: string;
 }
 
 export async function loginUser(
@@ -43,24 +33,44 @@ export async function loginUser(
   }
 }
 
-export async function isUserAuthenticated(
-  token: string | undefined
-): Promise<isUserAuthenticatedResponse> {
-  if (!token) {
-    throw new Error("no token received");
-  }
-
+export async function getUserById(userId: string): Promise<void> {
   try {
-    const res = await fetch(config.authURL + "/auth/verify", {
-      method: "GET",
-      headers: {
-        authentication: `${token}`
-      }
-    });
-    return { status: res.status, message: res.statusText };
+    const res = await fetch(config.authURL + "/user/" + userId);
+    console.log("user fetched", res);
+    const results = await res.json();
+    return results;
   } catch (e) {
     throw new Error(e);
   }
+}
+
+export async function isAuthenticated(
+  headers: Request["headers"]
+): Promise<object> {
+  return new Promise(async (resolve, reject) => {
+    const token: string | undefined = headers.authorization;
+    if (!token) {
+      return reject({ message: "token missing" });
+    }
+    // splits in "bearer" and the token itself
+    const tokenArray = token.split(" ");
+
+    try {
+      const res = await fetch(config.authURL + "/auth/verify", {
+        method: "GET",
+        headers: {
+          authentication: `${tokenArray[1]}`
+        }
+      });
+      if (res.status === 200) {
+        resolve({ message: "user is authenticated" });
+      } else {
+        reject(res);
+      }
+    } catch (e) {
+      reject({ message: e });
+    }
+  });
 }
 
 export async function getAllUser(): Promise<[]> {

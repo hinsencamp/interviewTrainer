@@ -7,41 +7,12 @@ import {
   Interview,
   Login
 } from "views";
-import { useAuth } from "utils/hooks";
-import useGlobalState from "utils/dataStore";
 
+import Authentication from "utils/hoc";
 import { GlobalStateProvider } from "utils/dataStore";
 import SideMenu from "components/SideMenu";
 import routes from "utils/routes";
 import style from "./App.module.scss";
-
-interface IPrivateRoute {
-  exact: boolean;
-  path: string;
-  Component: Element;
-}
-
-function PrivateRoute(props: any): any {
-  const { token } = useGlobalState();
-  const { Component } = props;
-  return (
-    <Route
-      {...props}
-      render={({ location }) =>
-        !!token ? (
-          <Component />
-        ) : (
-          <Redirect
-            to={{
-              pathname: "/login",
-              state: { from: location }
-            }}
-          />
-        )
-      }
-    />
-  );
-}
 
 function withSideMenu(Component: any) {
   return () => (
@@ -56,31 +27,29 @@ function ContentSwitch() {
   return (
     <Switch>
       <Route exact path={routes.login} component={Login} />
-      <PrivateRoute
-        exact
-        path={routes.root}
-        Component={withSideMenu(Dashboard)}
-      />
-      <PrivateRoute
-        exact
-        path={routes.dashboard}
-        Component={withSideMenu(Dashboard)}
-      />
-      <PrivateRoute
-        exact
-        path={routes.trainings}
-        Component={withSideMenu(TrainingSelection)}
-      />
-      <PrivateRoute
-        exact
-        path={routes.trainer + "/:type"}
-        Component={withSideMenu(Training)}
-      />
-      <PrivateRoute
-        exact
-        path={routes.interview}
-        Component={withSideMenu(Interview)}
-      />
+      <Authentication>
+        <Route exact path={routes.root} component={withSideMenu(Dashboard)} />
+        <Route
+          exact
+          path={routes.dashboard}
+          component={withSideMenu(Dashboard)}
+        />
+        <Route
+          exact
+          path={routes.trainings}
+          component={withSideMenu(TrainingSelection)}
+        />
+        <Route
+          exact
+          path={routes.trainer + "/:type"}
+          component={withSideMenu(Training)}
+        />
+        <Route
+          exact
+          path={routes.interview}
+          component={withSideMenu(Interview)}
+        />
+      </Authentication>
     </Switch>
   );
 }

@@ -16,7 +16,8 @@
     "elasticsearch": "^16.5.0",
     "express": "^4.17.1",
     "morgan": "^1.9.1",
-    "node-fetch": "^2.6.0"
+    "node-fetch": "^2.6.0",
+    "rxjs": "^6.5.4"
   },
   "devDependencies": {
     "@types/cors": "^2.8.6",

@@ -1,38 +1,38 @@
 import { Request, Response } from "express";
 
-import { getAllUser, isUserAuthenticated, loginUser } from "../services/user";
+import {
+  getAllUser,
+  getUserById,
+  loginUser,
+  isAuthenticated
+} from "../services/user";
+
+interface Headers {
+  authorization: string;
+}
 
 export async function login(req: Request, res: Response): Promise<void> {
   const { name, password } = req.body;
 
   try {
-    const { token } = await loginUser(name, password);
-    res.send({ token });
+    const user = await loginUser(name, password);
+
+    // TODO: make sure all important information is stored in the token, including userID.
+    // TODO: read out infromation in frontend.
+    // TODO: Alternatively: send more data with loginUser, store it in userStore.
+    res.status(200).send({ ...user });
   } catch (e) {
     res.send({ message: `Failed Bulk operation` });
   }
 }
 
-export async function isAuthenticated(
-  req: Request,
-  res: Response
-): Promise<void> {
-  const token: string | undefined = req.headers.authorization;
-
-  if (!token) {
-    res.status(404).send({ message: "token undefined" });
-    return;
-  }
-
-  const tokenArray = token.split(" "); // splits in "bearer" and the token itself
-  console.log("token reaching the backend", tokenArray);
+export async function getUser(req: Request, res: Response) {
   try {
-    const result = await isUserAuthenticated(tokenArray[1]);
-    console.log("authService result", result);
-    res.status(200).send({ ...result });
-  } catch (e) {
-    res.status(404).send({ message: e });
+    const user = await getUserById(req.query.id);
+    res.status(200).send({ message: "success", user });
+  } catch (err) {
+    res.status(404).send({ message: err });
   }
 }
 
-export default { login, isAuthenticated };
+export default { login, getUser };

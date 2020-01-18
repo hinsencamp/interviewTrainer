@@ -18,7 +18,7 @@ export default function Login() {
   const history = useHistory();
   const [userValue, setUserValue] = useState("");
   const [pwValue, setPwValue] = useState("");
-  const { token, fetchToken } = useGlobalState();
+  const { token, login } = useGlobalState();
 
   useEffect(() => {
     console.log(history.location.pathname);
@@ -28,12 +28,9 @@ export default function Login() {
   }, [token, history]);
 
   function submit() {
-    fetchToken(userValue, pwValue);
+    login(userValue, pwValue);
   }
 
-  //TODO: add token to request header for secured routes
-  //TODO: create isAuthenticated method to check if the token is valid
-  // before routing there, check if token is valid.
   return (
     <View centeredContent>
       <View.Body>

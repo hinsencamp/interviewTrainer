@@ -1,16 +1,12 @@
 import React, { createContext, useContext, useReducer } from "react";
 
-import {
-  fetchQuestions,
-  fetchQuestionsById,
-  fetchToken as fetchTokenAPI
-} from "../api";
+import { fetchQuestions, fetchQuestionsById, login as loginUser } from "../api";
 import { questionReducer, initialState } from "./questionsReducer";
 import {
   createLoadedQuestionsAction,
   createLoadedTrainingSet,
   createSearchAction,
-  createTokenAction
+  createUserAction
 } from "./questionActions";
 
 /* Define a context and a reducer for updating the context */
@@ -32,15 +28,16 @@ Default export is a hook that provides a simple API for updating the global stat
 This also allows us to keep all of this state logic in this one file
 */
 
-// https://coshx.com/storing-jwt-tokens-in-your-react-frontend
+// TODO: https://coshx.com/storing-jwt-tokens-in-your-react-frontend
+// TODO: change logic from promise chain to async await for readability
 
 const useGlobalState = () => {
   const [state, dispatch] = useContext(GlobalStateContext);
 
-  const fetchToken = (name, pw) => {
-    fetchTokenAPI(name, pw)
+  const login = (name, pw) => {
+    loginUser(name, pw)
       .then(user => {
-        dispatch(createTokenAction(user.token));
+        dispatch(createUserAction(user));
       })
       .catch(err => {
         console.log("user", err);
@@ -72,8 +69,9 @@ const useGlobalState = () => {
   return {
     setQuestions,
     fetchTrainingSet,
-    fetchToken,
-    token: state.token,
+    login,
+    token: state.user.token,
+    user: state.user,
     trainingSet: state.trainingSet,
     questions: [...state.questions],
     searchTerm: state.searchTerm
