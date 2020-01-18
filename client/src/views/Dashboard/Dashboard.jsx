@@ -6,7 +6,7 @@ import View from "components/View";
 import { isAuthenticated } from "../../utils/api";
 
 export default function Dashboard() {
-  const { user } = useGlobalState();
+  const { user, logout } = useGlobalState();
 
   // React.useEffect(() => {
   //   console.log(user);
@@ -16,7 +16,9 @@ export default function Dashboard() {
   return (
     <View>
       <View.Header headline={`Welcome ${user.name}`} />
-      <View.Body>{/*  */}</View.Body>
+      <View.Body>
+        <button onClick={() => logout()}>Logout</button>
+      </View.Body>
     </View>
   );
 }

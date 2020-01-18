@@ -34,14 +34,24 @@ This also allows us to keep all of this state logic in this one file
 const useGlobalState = () => {
   const [state, dispatch] = useContext(GlobalStateContext);
 
+  React.useEffect(() => {
+    console.log(state);
+  }, [state]);
+
   const login = (name, pw) => {
     loginUser(name, pw)
       .then(user => {
         dispatch(createUserAction(user));
+        // store in persited token storage
       })
       .catch(err => {
         console.log("user", err);
       });
+  };
+
+  const logout = () => {
+    dispatch(createUserAction({ ...state.user, token: "" }));
+    // clear persisted token storage
   };
 
   const fetchTrainingSet = (ids = []) => {
@@ -67,11 +77,12 @@ const useGlobalState = () => {
   };
 
   return {
+    login,
+    logout,
     setQuestions,
     fetchTrainingSet,
-    login,
-    token: state.user.token,
     user: state.user,
+    token: state.user.token,
     trainingSet: state.trainingSet,
     questions: [...state.questions],
     searchTerm: state.searchTerm

@@ -12,7 +12,14 @@ export default function Authentication(props) {
   const [forceRedirect, setForceRedirect] = useState(null);
 
   useEffect(() => {
+    if (!user.token) {
+      setForceRedirect(true);
+    }
+  }, [user.token]);
+
+  useEffect(() => {
     //check for authentication
+    console.log("user", user);
     isAuthenticated(user).then(isAuthenticated =>
       setForceRedirect(!isAuthenticated)
     );

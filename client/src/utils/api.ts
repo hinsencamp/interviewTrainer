@@ -33,7 +33,6 @@ export async function login(name: string, password: string) {
 
 export async function isAuthenticated(user: User): Promise<Boolean> {
   if (!user.token) {
-    console.log("authentication failed");
     return false;
   }
 

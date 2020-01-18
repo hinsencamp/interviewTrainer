@@ -21,7 +21,6 @@ export default function Login() {
   const { token, login } = useGlobalState();
 
   useEffect(() => {
-    console.log(history.location.pathname);
     if (token) {
       history.push("/dashboard");
     }
