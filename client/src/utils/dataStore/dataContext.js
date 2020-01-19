@@ -1,13 +1,15 @@
-import React, { createContext, useContext, useReducer } from "react";
-
+import React, { createContext, useContext, useReducer, useEffect } from "react";
+import { getCookie, setCookie, deleteCookie } from "utils/cookie";
 import { fetchQuestions, fetchQuestionsById, login as loginUser } from "../api";
 import { questionReducer, initialState } from "./questionsReducer";
 import {
   createLoadedQuestionsAction,
   createLoadedTrainingSet,
   createSearchAction,
-  createUserAction
+  createUserAction,
+  createTokenAction
 } from "./questionActions";
+import { useLocalStorage } from "utils/hooks";
 
 /* Define a context and a reducer for updating the context */
 const GlobalStateContext = createContext();
@@ -15,6 +17,19 @@ const GlobalStateContext = createContext();
 /* Export a component to provide the context to its children. This is used in our _app.js file */
 export const GlobalStateProvider = ({ children }) => {
   const [state, dispatch] = useReducer(questionReducer, initialState);
+  const { storedValue } = useLocalStorage("user");
+
+  // Set stored user data & auth on app mount.
+  useEffect(() => {
+    const storedToken = getCookie("token");
+
+    if (storedToken) {
+      dispatch(createTokenAction(storedToken));
+
+      const storedUser = storedValue;
+      dispatch(createUserAction(storedUser));
+    }
+  }, []);
 
   return (
     <GlobalStateContext.Provider value={[state, dispatch]}>
@@ -28,21 +43,18 @@ Default export is a hook that provides a simple API for updating the global stat
 This also allows us to keep all of this state logic in this one file
 */
 
-// TODO: https://coshx.com/storing-jwt-tokens-in-your-react-frontend
 // TODO: change logic from promise chain to async await for readability
-
 const useGlobalState = () => {
   const [state, dispatch] = useContext(GlobalStateContext);
-
-  React.useEffect(() => {
-    console.log(state);
-  }, [state]);
+  const { setValue, removeValue } = useLocalStorage("user", {});
 
   const login = (name, pw) => {
     loginUser(name, pw)
-      .then(user => {
+      .then(({ token, ...user }) => {
+        setCookie("token", token);
+        dispatch(createTokenAction(token));
+        setValue(user);
         dispatch(createUserAction(user));
-        // store in persited token storage
       })
       .catch(err => {
         console.log("user", err);
@@ -50,8 +62,9 @@ const useGlobalState = () => {
   };
 
   const logout = () => {
-    dispatch(createUserAction({ ...state.user, token: "" }));
-    // clear persisted token storage
+    dispatch(createTokenAction(""));
+    removeValue();
+    deleteCookie("token");
   };
 
   const fetchTrainingSet = (ids = []) => {
@@ -60,7 +73,7 @@ const useGlobalState = () => {
         dispatch(createLoadedTrainingSet(questions));
       })
       .catch(error => {
-        throw Error("question not fetched");
+        throw Error("question not fetched", error);
       });
   };
 
@@ -72,7 +85,7 @@ const useGlobalState = () => {
         dispatch(createLoadedQuestionsAction(questions));
       })
       .catch(error => {
-        throw Error("question not fetched");
+        throw Error("question not fetched", error);
       });
   };
 
@@ -82,7 +95,7 @@ const useGlobalState = () => {
     setQuestions,
     fetchTrainingSet,
     user: state.user,
-    token: state.user.token,
+    token: state.token,
     trainingSet: state.trainingSet,
     questions: [...state.questions],
     searchTerm: state.searchTerm

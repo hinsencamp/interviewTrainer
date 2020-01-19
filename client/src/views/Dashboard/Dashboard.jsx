@@ -8,11 +8,6 @@ import { isAuthenticated } from "../../utils/api";
 export default function Dashboard() {
   const { user, logout } = useGlobalState();
 
-  // React.useEffect(() => {
-  //   console.log(user);
-  //   isAuthenticated(user).then(res => console.log(res));
-  // }, []);
-
   return (
     <View>
       <View.Header headline={`Welcome ${user.name}`} />

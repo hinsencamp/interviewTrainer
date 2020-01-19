@@ -2,7 +2,8 @@ import {
   SET_SEARCHTERM,
   SET_QUESTIONS,
   SET_TRAINING,
-  SET_USER
+  SET_USER,
+  SET_TOKEN
 } from "./actionConst";
 
 export const createSearchAction = searchTerm => ({
@@ -21,3 +22,4 @@ export const createLoadedTrainingSet = questions => ({
 });
 
 export const createUserAction = user => ({ type: SET_USER, payload: user });
+export const createTokenAction = token => ({ type: SET_TOKEN, payload: token });

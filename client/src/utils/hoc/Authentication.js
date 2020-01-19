@@ -1,29 +1,20 @@
 import React, { useEffect, useState } from "react";
-import PropTypes from "prop-types";
 import { Redirect, useLocation } from "react-router-dom";
-
 import { isAuthenticated } from "../api";
-
 import useGlobalState from "utils/dataStore";
 
 export default function Authentication(props) {
-  const { user } = useGlobalState();
+  const { user, token } = useGlobalState();
   const location = useLocation();
   const [forceRedirect, setForceRedirect] = useState(null);
 
   useEffect(() => {
-    if (!user.token) {
-      setForceRedirect(true);
+    if (user.userId && token) {
+      isAuthenticated(user.userId, token).then(isAuthenticated =>
+        setForceRedirect(!isAuthenticated)
+      );
     }
-  }, [user.token]);
-
-  useEffect(() => {
-    //check for authentication
-    console.log("user", user);
-    isAuthenticated(user).then(isAuthenticated =>
-      setForceRedirect(!isAuthenticated)
-    );
-  }, []);
+  }, [user, token]);
 
   //Set redirect back to default
   useEffect(() => {

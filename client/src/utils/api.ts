@@ -31,16 +31,19 @@ export async function login(name: string, password: string) {
   return results;
 }
 
-export async function isAuthenticated(user: User): Promise<Boolean> {
-  if (!user.token) {
+export async function isAuthenticated(
+  userId: string,
+  token: string
+): Promise<Boolean> {
+  if (!token) {
     return false;
   }
 
   try {
-    const res = await fetch(API + AUTH + `?id=${user.userId}`, {
+    const res = await fetch(API + AUTH + `?id=${userId}`, {
       method: "GET",
       headers: {
-        Authorization: `Bearer ${user.token}`
+        Authorization: `Bearer ${token}`
       }
     });
 
