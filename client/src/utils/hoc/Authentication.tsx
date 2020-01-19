@@ -27,7 +27,7 @@ export default function Authentication({ children }: any) {
     if (prevToken && !token) {
       setForceRedirect(true);
     }
-  }, [token]);
+  }, [token, prevToken]);
 
   //Set redirect back to default
   useEffect(() => {

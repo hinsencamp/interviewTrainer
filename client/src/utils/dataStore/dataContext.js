@@ -29,7 +29,7 @@ export const GlobalStateProvider = ({ children }) => {
       const storedUser = storedValue;
       dispatch(createUserAction(storedUser));
     }
-  }, []);
+  }, [storedValue]);
 
   return (
     <GlobalStateContext.Provider value={[state, dispatch]}>

@@ -2,6 +2,8 @@ import React, { useContext, createContext } from "react";
 
 import style from "./View.module.scss";
 
+import User from "components/User";
+
 const ViewContext = createContext(null);
 
 export default function View({ centeredContent, ...props }) {
@@ -17,7 +19,10 @@ export default function View({ centeredContent, ...props }) {
 function Header(props) {
   return (
     <div className={style.header}>
-      {props.headline && <h1 className={style.h1}>{props.headline}</h1>}
+      <div className={style.headlineWrapper}>
+        {props.headline && <h1 className={style.h1}>{props.headline}</h1>}
+        <User className={style.user} />
+      </div>
       {props.children}
     </div>
   );

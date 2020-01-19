@@ -12,7 +12,6 @@ import Authentication from "utils/hoc";
 import { GlobalStateProvider } from "utils/dataStore";
 import { withSideMenu } from "components/SideMenu";
 import routes from "utils/routes";
-import style from "./App.module.scss";
 
 function ContentSwitch() {
   return (
