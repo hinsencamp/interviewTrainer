@@ -3,4 +3,5 @@ import { Dashboard } from "./Dashboard";
 import { Interview } from "./Interview";
 import { TrainingSelection } from "./TrainingSelection";
 import { Login } from "./Login";
-export { Login, Training, Dashboard, Interview, TrainingSelection };
+import { Skeleton } from "./Skeleton";
+export { Login, Training, Dashboard, Interview, TrainingSelection, Skeleton };

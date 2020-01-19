@@ -42,3 +42,12 @@ export default function SideMenu() {
     </div>
   );
 }
+
+export function withSideMenu(Component: any) {
+  return () => (
+    <div className={style.app}>
+      <SideMenu />
+      <Component />
+    </div>
+  );
+}

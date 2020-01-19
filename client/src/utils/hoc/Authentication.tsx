@@ -2,15 +2,21 @@ import React, { useEffect, useState } from "react";
 import { Redirect, useLocation } from "react-router-dom";
 import { isAuthenticated } from "../api";
 import useGlobalState from "utils/dataStore";
+import { usePrevious } from "utils/hooks";
 
-export default function Authentication(props) {
+import { Skeleton } from "views";
+import { withSideMenu } from "components/SideMenu";
+
+export default function Authentication({ children }: any) {
   const { user, token } = useGlobalState();
+  const prevToken = usePrevious(token);
+
   const location = useLocation();
-  const [forceRedirect, setForceRedirect] = useState(null);
+  const [forceRedirect, setForceRedirect] = useState<null | boolean>(null);
 
   useEffect(() => {
     if (user.userId && token) {
-      isAuthenticated(user.userId, token).then(isAuthenticated =>
+      isAuthenticated(user.userId, token).then((isAuthenticated: Boolean) =>
         setForceRedirect(!isAuthenticated)
       );
     }
@@ -18,7 +24,7 @@ export default function Authentication(props) {
 
   // Logout redirect
   useEffect(() => {
-    if (!token) {
+    if (prevToken && !token) {
       setForceRedirect(true);
     }
   }, [token]);
@@ -33,7 +39,7 @@ export default function Authentication(props) {
   function renderReturns() {
     if (forceRedirect === null) {
       // show empty page until we know if we need to redirect to login screen
-      return null;
+      return withSideMenu(Skeleton)();
     } else if (forceRedirect) {
       return (
         <Redirect
@@ -45,7 +51,7 @@ export default function Authentication(props) {
         />
       );
     } else {
-      return props.children;
+      return children;
     }
   }
 

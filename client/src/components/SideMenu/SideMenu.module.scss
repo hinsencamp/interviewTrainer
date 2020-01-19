@@ -1,5 +1,13 @@
 @import "~assets/styles/colors";
 
+.app {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+  height: 100vh;
+  overflow: hidden;
+}
+
 .sideMenu {
   background: $DarkShade;
   color: $LightShade;

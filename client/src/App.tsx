@@ -1,5 +1,5 @@
 import React from "react";
-import { Redirect, BrowserRouter, Switch, Route } from "react-router-dom";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 import {
   Dashboard,
   Training,
@@ -10,18 +10,9 @@ import {
 
 import Authentication from "utils/hoc";
 import { GlobalStateProvider } from "utils/dataStore";
-import SideMenu from "components/SideMenu";
+import { withSideMenu } from "components/SideMenu";
 import routes from "utils/routes";
 import style from "./App.module.scss";
-
-function withSideMenu(Component: any) {
-  return () => (
-    <div className={style.app}>
-      <SideMenu />
-      <Component />
-    </div>
-  );
-}
 
 function ContentSwitch() {
   return (
