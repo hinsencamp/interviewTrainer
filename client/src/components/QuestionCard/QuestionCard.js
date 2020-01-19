@@ -10,7 +10,7 @@ import style from "./QuestionCard.module.scss";
 
 var md = new Remarkable("commonmark");
 
-// TODO: fix security concern related to XSS with injecting html
+// TODO: SECURITY - concern related to XSS with injecting html
 
 function MockParagraph({ headline, children }) {
   return (

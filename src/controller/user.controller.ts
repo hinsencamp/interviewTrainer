@@ -16,10 +16,6 @@ export async function login(req: Request, res: Response): Promise<void> {
 
   try {
     const user = await loginUser(name, password);
-
-    // TODO: make sure all important information is stored in the token, including userID.
-    // TODO: read out infromation in frontend.
-    // TODO: Alternatively: send more data with loginUser, store it in userStore.
     res.status(200).send({ ...user });
   } catch (e) {
     res.send({ message: `Failed Bulk operation` });

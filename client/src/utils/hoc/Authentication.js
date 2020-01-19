@@ -16,6 +16,13 @@ export default function Authentication(props) {
     }
   }, [user, token]);
 
+  // Logout redirect
+  useEffect(() => {
+    if (!token) {
+      setForceRedirect(true);
+    }
+  }, [token]);
+
   //Set redirect back to default
   useEffect(() => {
     if (forceRedirect) {
