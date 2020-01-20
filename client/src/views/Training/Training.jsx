@@ -1,5 +1,7 @@
 import React, { useEffect } from "react";
 import { useLocation, useParams } from "react-router-dom";
+import { useLocalStorage } from "utils/hooks";
+
 import queryString from "query-string";
 
 import View from "components/View";
@@ -12,18 +14,32 @@ import useGlobalState from "utils/dataStore";
 
 export default function Training() {
   const { trainingSet, fetchTrainingSet } = useGlobalState();
-  const { search } = useLocation();
-  const { type } = useParams();
+  const {
+    storedValue: randomSeed,
+    removeValue: removeSeed,
+    setValue: setSeed
+  } = useLocalStorage("trainingSeed");
+  const { type: trainingType } = useParams();
 
   /* eslint react-hooks/exhaustive-deps: 0 */
   useEffect(() => {
-    const ids = JSON.parse(queryString.parse(search).ids);
-    fetchTrainingSet(ids);
+    if (!randomSeed) {
+      setSeed(Math.round(Math.random() * 100000));
+    }
+    fetchTrainingSet(5, randomSeed);
   }, []);
+
+  useEffect(() => {
+    !trainingSet && removeSeed();
+  }, [trainingSet]);
+
+  useEffect(() => {
+    console.log(trainingSet);
+  }, [trainingSet]);
 
   return (
     <View>
-      <View.Header headline={`${capitalize(type)} Training`} />
+      <View.Header headline={`${capitalize(trainingType)} Training`} />
       <View.Body>
         <Trainer trainingSet={trainingSet} />
       </View.Body>

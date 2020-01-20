@@ -4,7 +4,7 @@ import { Remarkable } from "remarkable";
 
 import { Text } from "@blueprintjs/core";
 
-import { Card, Elevation } from "@blueprintjs/core";
+import { Card, Elevation, Tag } from "@blueprintjs/core";
 
 import style from "./QuestionCard.module.scss";
 
@@ -31,16 +31,17 @@ function Paragraph({ headline, contentHtml }) {
 }
 
 export function QuestionCard({
-  category,
+  // category,
   question,
-  answer,
+  // answer,
   children,
   ...props
 }) {
   return (
     <Card elevation={Elevation.ONE} {...props}>
       <h2 className="bp3-heading">{question}</h2>
-      <MockParagraph headline={"Context"}>
+
+      {/* <MockParagraph headline={"Context"}>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliquat enim ad minim
         veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
@@ -61,7 +62,7 @@ export function QuestionCard({
             <Text>dolore magna</Text>
           </li>
         </ul>
-      </MockParagraph>
+      </MockParagraph> */}
       {children}
     </Card>
   );

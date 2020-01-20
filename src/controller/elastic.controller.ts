@@ -5,6 +5,7 @@ import {
   idQuery,
   multiQuery,
   bulkImport,
+  randomQuery,
   termAggregation
 } from "../services/elastic";
 import questions from "../demoData/data.json";
@@ -19,6 +20,18 @@ async function setDemoData(req: Request, res: Response): Promise<void> {
     res.send({ message: `🚀 Successfully imported  items: ${result}` });
   } catch (e) {
     res.send({ message: `Failed Bulk operation` });
+  }
+}
+
+async function queryTrainingSet(req: Request, res: Response): Promise<void> {
+  const { qCount, type, seed } = req.query;
+  const index = "questions";
+
+  try {
+    const result = await randomQuery(qCount, seed, index, type);
+    res.send({ result });
+  } catch (e) {
+    res.send({ error: e });
   }
 }
 
@@ -77,5 +90,6 @@ export default {
   setDemoData,
   queryAll,
   aggregateTerms,
-  queryById
+  queryById,
+  queryTrainingSet
 };

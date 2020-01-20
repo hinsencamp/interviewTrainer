@@ -27,10 +27,25 @@ export default function TrainingSelection() {
   const foo = {
     pathname: routes.trainer,
     search: `?ids=${JSON.stringify([
-      "hZDra28ByVzq0AuwY_p_",
-      "hpDra28ByVzq0AuwY_p_"
+      "nTf7rm8B8ZZHC5LTDR1M",
+      "nzf7rm8B8ZZHC5LTDR1M",
+      "oTf7rm8B8ZZHC5LTDR1M"
     ])}`
   };
+
+  /** Backend  */
+
+  // TODO: send trainings creation Request
+  // -> 10 questions
+  // TODO: receive array of Ids for training.
+
+  // choose type of training
+  // random, prev failed, etc.
+
+  /** Frontend  */
+
+  // TODO: meta information of session between headline and questions card
+  // question counter 4/10, difficulty, type tags - js, node, css etc.
 
   return (
     <View>

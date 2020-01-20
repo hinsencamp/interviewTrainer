@@ -79,6 +79,32 @@ function Search(payload: object): Promise<number[] | object | void> {
     });
 }
 
+export async function randomQuery(
+  size: number,
+  seed: number,
+  index: string,
+  type: string
+): Promise<number[] | object | void> {
+  const body = {
+    size: size,
+    query: {
+      function_score: {
+        query: { match_all: {} },
+        random_score: {
+          seed: seed
+        }
+      }
+    }
+  };
+  console.log(body.query.function_score.random_score);
+  const payload = {
+    index,
+    body,
+    type
+  };
+  return Search(payload);
+}
+
 export async function basicQuery(
   query: string,
   field: string,
@@ -86,7 +112,7 @@ export async function basicQuery(
   type: string
 ): Promise<number[] | object | void> {
   const body = {
-    size: 200,
+    size: 10,
     from: 0,
     query: {
       match: {

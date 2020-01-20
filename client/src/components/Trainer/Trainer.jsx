@@ -4,14 +4,22 @@ import React, { useEffect, useState } from "react";
 import { useLocalStorage } from "utils/hooks";
 import { useIndex } from "./useIndex";
 import { useResultCounter } from "./useResultCounter";
-
+import TabGroup from "./TabGroup";
 // UI
 import { Button, Intent } from "@blueprintjs/core";
-import { QuestionCard } from "components/QuestionCard";
 import CompletionDialog from "./CompletionDialog";
 import { COMPLETED, FAILED } from "./resultConst";
 
 import style from "./Trainer.module.scss";
+
+// TODO: fetch complete Training set at once
+// store it
+// create preview of types / difficulties of questions
+// timeline visualisation
+// TODO: User stats
+// count how many trainings of type X have been completed
+
+//TODO: prompt user with dialog, when leaving the trainings area, reset local storage
 
 export function Trainer({ trainingSet }) {
   const { finalResults, storeResult } = useResultCounter();
@@ -69,28 +77,21 @@ export function Trainer({ trainingSet }) {
 
   return (
     <>
-      <QuestionCard
-        className={!currentQuestion && "bp3-skeleton"}
-        question={currentQuestion && currentQuestion.question}
-        answer={currentQuestion && currentQuestion.answer}
-      >
-        <QuestionCard.Footer>
-          <div className={style.completionPanel}>
-            <Button
-              icon="floppy-disk"
-              onClick={() => handleQuestionCompletion(FAILED)}
-            >
-              Save for Repetition
-            </Button>
-            <Button
-              intent={Intent.SUCCESS}
-              onClick={() => handleQuestionCompletion(COMPLETED)}
-            >
-              Next
-            </Button>
-          </div>
-        </QuestionCard.Footer>
-      </QuestionCard>
+      <TabGroup question={currentQuestion}></TabGroup>
+      <div className={style.completionPanel}>
+        <Button
+          icon="floppy-disk"
+          onClick={() => handleQuestionCompletion(FAILED)}
+        >
+          Save for Repetition
+        </Button>
+        <Button
+          intent={Intent.SUCCESS}
+          onClick={() => handleQuestionCompletion(COMPLETED)}
+        >
+          Next
+        </Button>
+      </div>
       <CompletionDialog
         finalResults={finalResults}
         handleClose={handleClose}

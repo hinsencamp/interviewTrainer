@@ -3,8 +3,9 @@ const LOGIN = "login";
 const AUTH = "authenticate";
 const MULTI = "multi-field?query=";
 const QUESTIONS = "questionById?ids=";
+const TRAININGSET = "trainingSet?qCount=";
 
-// TODO: create abstraction for setting Headers
+// TODO: ARCHITECTURE create abstraction for setting Headers
 
 interface User {
   userId: string;
@@ -54,9 +55,21 @@ export async function isAuthenticated(
   }
 }
 
-// TODO: CRUD logic wrapper and only do data transformation here.
+// TODO: ARCHITECTURE CRUD logic wrapper and only do data transformation here.
 export async function fetchQuestions(searchTerm: string) {
   const res = await fetch(API + MULTI + searchTerm);
+  const results = await res.json();
+  return results.result.map(({ _id, _source }: Questions) => ({
+    id: _id,
+    ..._source
+  }));
+}
+
+export async function fetchRandomTrainingSet(
+  count: number,
+  randomSeed: number
+) {
+  const res = await fetch(API + TRAININGSET + count + "&seed=" + randomSeed);
   const results = await res.json();
   return results.result.map(({ _id, _source }: Questions) => ({
     id: _id,

@@ -1,6 +1,11 @@
 import React, { createContext, useContext, useReducer, useEffect } from "react";
 import { getCookie, setCookie, deleteCookie } from "utils/cookie";
-import { fetchQuestions, fetchQuestionsById, login as loginUser } from "../api";
+import {
+  fetchQuestions,
+  fetchQuestionsById,
+  fetchRandomTrainingSet,
+  login as loginUser
+} from "../api";
 import { questionReducer, initialState } from "./questionsReducer";
 import {
   createLoadedQuestionsAction,
@@ -43,7 +48,7 @@ Default export is a hook that provides a simple API for updating the global stat
 This also allows us to keep all of this state logic in this one file
 */
 
-// TODO: change logic from promise chain to async await for readability
+// TODO: ARCHITECTURE change logic from promise chain to async await for readability
 const useGlobalState = () => {
   const [state, dispatch] = useContext(GlobalStateContext);
   const { setValue, removeValue } = useLocalStorage("user", {});
@@ -67,8 +72,8 @@ const useGlobalState = () => {
     deleteCookie("token");
   };
 
-  const fetchTrainingSet = (ids = []) => {
-    fetchQuestionsById(ids)
+  const fetchTrainingSet = (questionCount, randomSeed) => {
+    fetchRandomTrainingSet(questionCount, randomSeed)
       .then(questions => {
         dispatch(createLoadedTrainingSet(questions));
       })
@@ -77,7 +82,7 @@ const useGlobalState = () => {
       });
   };
 
-  // TODO: change name to indicate async behaviour
+  // TODO: ARCHITECTURE change name to indicate async behaviour
   const setQuestions = searchTerm => {
     dispatch(createSearchAction(searchTerm));
     fetchQuestions(searchTerm)

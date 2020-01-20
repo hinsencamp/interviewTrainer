@@ -32,6 +32,7 @@ router.route("/login").post(userControllers.login);
 router.route("/authenticate").get(userControllers.getUser, ensureAuthenticated);
 
 /** BUSINESS LOGIC */
+router.route("/trainingSet").get(elasticControllers.queryTrainingSet);
 router.route("/question").get(elasticControllers.queryQuestion);
 router.route("/multi-field").get(elasticControllers.queryAll);
 router.route("/category").get(elasticControllers.aggregateTerms);
