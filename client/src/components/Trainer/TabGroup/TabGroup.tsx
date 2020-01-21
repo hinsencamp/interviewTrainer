@@ -19,12 +19,11 @@ interface StringMap {
 }
 interface ITabGroup {
   question: QuestionObject;
+  classes: string[];
 }
 
-// TODO: DATA DISPLAY replace mock data with actual data from backend.
-export default function TabGroup({ question }: ITabGroup) {
+export default function TabGroup({ question, classes }: ITabGroup) {
   const [selectedTabId, setSelectedTabId] = useState("question");
-  console.log(question);
   const panels: StringMap = {
     question: (
       <QuestionTab
@@ -41,7 +40,7 @@ export default function TabGroup({ question }: ITabGroup) {
       <Tabs
         id="navbar"
         selectedTabId={selectedTabId}
-        className={style.questionTab}
+        className={[style.questionTab, ...classes].join(" ")}
         onChange={(navbarTabId: string) => setSelectedTabId(navbarTabId)}
       >
         {Object.keys(panels).map(panelName => (
@@ -53,6 +52,7 @@ export default function TabGroup({ question }: ITabGroup) {
           />
         ))}
       </Tabs>
+
       <Tabs.Expander />
     </>
   );

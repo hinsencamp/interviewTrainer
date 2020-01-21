@@ -20,9 +20,9 @@ function Header(props) {
   return (
     <div className={style.header}>
       <div className={style.headlineWrapper}>
-        {props.headline && <h1 className={style.h1}>{props.headline}</h1>}
         <User className={style.user} />
       </div>
+      {props.headline && <h1 className={style.h1}>{props.headline}</h1>}
       {props.children}
     </div>
   );
@@ -33,8 +33,9 @@ function Body(props) {
 
   return (
     <div
-      className={`${style.body} ${viewContext.centeredContent &&
-        style.bodyCentered}`}
+      className={`${props.className} ${
+        style.body
+      } ${viewContext.centeredContent && style.bodyCentered} `}
     >
       {props.children}
     </div>

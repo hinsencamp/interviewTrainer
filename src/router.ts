@@ -25,7 +25,6 @@ async function ensureAuthenticated(
 router.route("/demodata").post(elasticControllers.setDemoData);
 
 /** USER  ROUTES */
-// TODO: SECURITY: issue new Token for each request reached the backend.
 
 router.route("/login").post(userControllers.login);
 // GetUser is used to ensure Autentication, it's a protected route to only works when current token is still valid;

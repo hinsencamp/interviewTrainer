@@ -6,20 +6,26 @@ import { useIndex } from "./useIndex";
 import { useResultCounter } from "./useResultCounter";
 import TabGroup from "./TabGroup";
 // UI
-import { Button, Intent } from "@blueprintjs/core";
+import { Button, Intent, ProgressBar } from "@blueprintjs/core";
 import CompletionDialog from "./CompletionDialog";
 import { COMPLETED, FAILED } from "./resultConst";
 
 import style from "./Trainer.module.scss";
 
-// TODO: fetch complete Training set at once
-// store it
-// create preview of types / difficulties of questions
-// timeline visualisation
-// TODO: User stats
-// count how many trainings of type X have been completed
-
-//TODO: prompt user with dialog, when leaving the trainings area, reset local storage
+function ProgressBox({ currentIndex, finalIndex }) {
+  return (
+    <>
+      <ProgressBar
+        className="bp3-no-stripes"
+        intent={Intent.SUCCESS}
+        value={currentIndex / finalIndex}
+      />
+      <div className="bp3-text-small bp3-text-muted">
+        Task ({currentIndex + 1} / {finalIndex + 1})
+      </div>
+    </>
+  );
+}
 
 export function Trainer({ trainingSet }) {
   const { finalResults, storeResult } = useResultCounter();
@@ -77,7 +83,11 @@ export function Trainer({ trainingSet }) {
 
   return (
     <>
-      <TabGroup question={currentQuestion}></TabGroup>
+      <ProgressBox currentIndex={currentIndex} finalIndex={finalIndex} />
+      <TabGroup
+        classes={[style.tabGroup]}
+        question={currentQuestion}
+      ></TabGroup>
       <div className={style.completionPanel}>
         <Button
           icon="floppy-disk"

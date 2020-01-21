@@ -33,20 +33,6 @@ export default function TrainingSelection() {
     ])}`
   };
 
-  /** Backend  */
-
-  // TODO: send trainings creation Request
-  // -> 10 questions
-  // TODO: receive array of Ids for training.
-
-  // choose type of training
-  // random, prev failed, etc.
-
-  /** Frontend  */
-
-  // TODO: meta information of session between headline and questions card
-  // question counter 4/10, difficulty, type tags - js, node, css etc.
-
   return (
     <View>
       <View.Header headline={"Training Selection"} />

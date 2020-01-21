@@ -5,8 +5,6 @@ const MULTI = "multi-field?query=";
 const QUESTIONS = "questionById?ids=";
 const TRAININGSET = "trainingSet?qCount=";
 
-// TODO: ARCHITECTURE create abstraction for setting Headers
-
 interface User {
   userId: string;
   name: string;
@@ -55,7 +53,6 @@ export async function isAuthenticated(
   }
 }
 
-// TODO: ARCHITECTURE CRUD logic wrapper and only do data transformation here.
 export async function fetchQuestions(searchTerm: string) {
   const res = await fetch(API + MULTI + searchTerm);
   const results = await res.json();

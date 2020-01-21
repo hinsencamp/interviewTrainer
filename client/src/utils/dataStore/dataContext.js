@@ -2,7 +2,6 @@ import React, { createContext, useContext, useReducer, useEffect } from "react";
 import { getCookie, setCookie, deleteCookie } from "utils/cookie";
 import {
   fetchQuestions,
-  fetchQuestionsById,
   fetchRandomTrainingSet,
   login as loginUser
 } from "../api";
@@ -48,7 +47,6 @@ Default export is a hook that provides a simple API for updating the global stat
 This also allows us to keep all of this state logic in this one file
 */
 
-// TODO: ARCHITECTURE change logic from promise chain to async await for readability
 const useGlobalState = () => {
   const [state, dispatch] = useContext(GlobalStateContext);
   const { setValue, removeValue } = useLocalStorage("user", {});
@@ -82,7 +80,6 @@ const useGlobalState = () => {
       });
   };
 
-  // TODO: ARCHITECTURE change name to indicate async behaviour
   const setQuestions = searchTerm => {
     dispatch(createSearchAction(searchTerm));
     fetchQuestions(searchTerm)

@@ -1,12 +1,12 @@
 import React from "react";
 
-import { Card, Elevation, Tag } from "@blueprintjs/core";
+import { Card, Elevation } from "@blueprintjs/core";
 
 interface IResource {
   headline: string;
   resources: string[];
 }
-//TODO:DATA DISPLAY change resources to objects with link and title.
+
 export default function ResourceTab({
   headline,
   resources,

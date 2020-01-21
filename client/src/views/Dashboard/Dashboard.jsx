@@ -4,7 +4,7 @@ import useGlobalState from "utils/dataStore";
 import View from "components/View";
 
 export default function Dashboard() {
-  const { user, logout } = useGlobalState();
+  const { user } = useGlobalState();
 
   return (
     <View>

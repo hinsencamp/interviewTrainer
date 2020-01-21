@@ -10,8 +10,6 @@ import style from "./QuestionCard.module.scss";
 
 var md = new Remarkable("commonmark");
 
-// TODO: SECURITY - concern related to XSS with injecting html
-
 function MockParagraph({ headline, children }) {
   return (
     <div className={style.paragraph}>

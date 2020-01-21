@@ -51,7 +51,7 @@ export default function User(props: Props) {
       <Button className={style.userButton} minimal large>
         <div className={style.userButtonText}>
           <span className={style.userText}>{user.name} </span>{" "}
-          <Icon iconSize={30} icon="user" />
+          <Icon iconSize={25} icon="user" />
         </div>
       </Button>
     </Popover>
